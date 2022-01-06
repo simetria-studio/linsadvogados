@@ -8,7 +8,7 @@
                 </ul>
             </div>
             <div class="col-lg-6 text-right">
-                {{ date('Y') }} <a href="#">Cubi</a> Todos direitos reservados.
+                {{ date('Y') }} <a href="#">Cube</a> Todos direitos reservados.
             </div>
         </div>
     </div>
