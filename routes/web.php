@@ -23,10 +23,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function () {
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 route::get('conta', [ContaController::class, 'index'])->name('conta');
 route::get('perfil', [PerfilController::class, 'index'])->name('perfil');
 route::get('edit-perfil', [PerfilEditController::class, 'index'])->name('edit-perfil');
 route::get('privacidade', [PrivacidadeController::class, 'index'])->name('privacidade');
 route::get('clientes', [ClientesController::class, 'index'])->name('clientes');
+});
