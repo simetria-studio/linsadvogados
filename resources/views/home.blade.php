@@ -7,9 +7,7 @@
                     <div class="card-body">
                         <h4 class="card-title text-white">Financeiro</h4>
                         <blockquote class="blockquote mb-0">
-                            <p class="font-size-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                                posuere
-                                erat a ante.</p>
+                            <p class="font-size-14">Controle seus assuntos financeiro.</p>
                         </blockquote>
                     </div>
                 </div>
@@ -19,21 +17,17 @@
                     <div class="card-body">
                         <h4 class="card-title text-white">Clientes</h4>
                         <blockquote class="blockquote mb-0">
-                            <p class="font-size-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                                posuere
-                                erat a ante.</p>
+                            <p class="font-size-14">Veja, cadastre ou altere seus clientes.</p>
                         </blockquote>
                     </div>
                 </div>
             </a>
-            <a href="#" class="col-lg-4">
+            <a href="{{ route('pericia') }}" class="col-lg-4">
                 <div class="card text-white bg-success iq-mb-3">
                     <div class="card-body">
                         <h4 class="card-title text-white">Perícia</h4>
                         <blockquote class="blockquote mb-0">
-                            <p class="font-size-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                                posuere
-                                erat a ante.</p>
+                            <p class="font-size-14">Veja os laudos da perícia.</p>
                         </blockquote>
                     </div>
                 </div>

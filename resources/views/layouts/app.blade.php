@@ -78,7 +78,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="iq-waves-effect">
+                            <a href="{{ route('pericia') }}" class="iq-waves-effect">
                                 <i class="ri-file-search-line"></i>
                                 <span>Perícia</span>
                             </a>
@@ -96,7 +96,6 @@
                 <div class="top-logo">
                     <a href="index.html" class="logo">
                         <img src="{{ url('assets/img/logo.png') }}" class="img-fluid" alt="Logotipo">
-                        <span>vito</span>
                     </a>
                 </div>
             </div>
