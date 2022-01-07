@@ -26,8 +26,8 @@ use App\Http\Controllers\Paginas\ClientesController;
 use App\Http\Controllers\Paginas\ClientesController;
 >>>>>>> Auto stash before checking out "HEAD"
 use App\Http\Controllers\Painel\PerfilEditController;
-use App\Http\Controllers\Paginas\FinanceiroController;
 use App\Http\Controllers\Painel\PrivacidadeController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,11 +56,4 @@ Route::middleware(['auth'])->group(function () {
     route::get('pericia', [PericiaController::class, 'index'])->name('pericia');
     route::post('clientes-store', [ClientesController::class, 'store'])->name('clientes.store');
     route::any('clientesdelete/{id}', [ClientesController::class, 'destroy'])->name('clientes.delete');
-    route::get('clientesver/{id}', [ClientesController::class, 'show'])->name('clientes.show');
-    route::get('clienteseditar/{id}', [ClientesController::class, 'edit'])->name('clientes.edit');
-    route::post('clienteseupdate/{id}', [ClientesController::class, 'update'])->name('clientes.update');
-
-    Route::get('buscacep', [CepController::class, 'buscaCep'])->name('address.cep');
-
-    Route::post('search', [ClientesController::class, 'search'])->name('search');
 });

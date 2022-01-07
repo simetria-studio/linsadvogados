@@ -21,9 +21,4 @@ class Cliente extends Model
         'email',
         'whatsapp',
     ];
-
-    public function adress()
-    {
-        return $this->hasOne(Adress::class, 'user_id');
-    }
 }

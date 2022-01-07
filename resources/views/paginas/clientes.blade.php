@@ -18,16 +18,10 @@
                             <div class="row justify-content-between">
                                 <div class="col-sm-12 col-md-6">
                                     <div id="user_list_datatable_info" class="dataTables_filter">
-                                        <form class="mr-3 position-relative" action="{{ route('search') }}" method="POST">
-                                            @csrf
-                                            <div class="row">
-                                                <div class="form-group mb-0 col-md-6">
-                                                    <input type="search" class="form-control" id="exampleInputSearch"
-                                                        placeholder="Digite o cpf para buscar" name="search" aria-controls="user-list-table">
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <button class="btn btn-success">Buscar</button>
-                                                </div>
+                                        <form class="mr-3 position-relative">
+                                            <div class="form-group mb-0">
+                                                <input type="search" class="form-control" id="exampleInputSearch"
+                                                    placeholder="Buscar" aria-controls="user-list-table">
                                             </div>
                                         </form>
                                     </div>
@@ -50,8 +44,7 @@
                                     @foreach ($clientes as $cliente)
                                         <tr>
                                             <td class="text-center"><img class="rounded-circle img-fluid avatar-40"
-                                                    src="{{ asset('storage/clientes/' . $cliente->image) }}"
-                                                    alt="profile">
+                                                    src="{{ asset('storage/clientes/' . $cliente->image) }}" alt="profile">
                                             </td>
                                             <td>{{ $cliente->name }}</td>
                                             <td>{{ $cliente->cpf }}</td>
@@ -60,14 +53,13 @@
                                             <td>
                                                 <div class="flex align-items-center list-user-action">
                                                     <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                        title="" data-original-title="Editar" href="{{ route('clientes.edit', $cliente->id) }}" ><i
+                                                        title="" data-original-title="Editar" href="#"><i
                                                             class="ri-pencil-line"></i></a>
-                                                    <a class="iq-bg-primary" onclick="deleteItem(this)" data-toggle="tooltip" data-original-title="Deletar"
+                                                    <a class="iq-bg-primary" onclick="deleteItem(this)"
                                                         data-id="{{ $cliente->id }}"><i
                                                             class="ri-delete-bin-line"></i></a>
                                                     <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                        title="" data-original-title="Ver"
-                                                        href="{{ route('clientes.show', $cliente->id) }}"><i
+                                                        title="" data-original-title="Ver" href="#"><i
                                                             class="ri-eye-line"></i></a>
                                                 </div>
                                             </td>
@@ -78,9 +70,24 @@
                             </table>
                         </div>
                         <div class="row justify-content-between mt-3">
-
+                            <div id="user-list-page-info" class="col-md-6">
+                                <span>Mostrando 1 a 5 de 5 entradas</span>
+                            </div>
                             <div class="col-md-6">
-                                {{ $clientes->links() }}
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-end mb-0">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1"
+                                                aria-disabled="true">Previous</a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
@@ -186,55 +193,49 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>cep: *</label>
-                                            <input type="text" class="form-control" placeholder="Digite o cep" id="ceping"
-                                                name="cep" />
+                                            <input type="text" class="form-control" placeholder="Digite o cep" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group" style="margin-top: 36px;">
-                                            <button type="button" id="buscaring" class="btn btn-dark">Buscar <i
+                                            <button type="button" class="btn btn-dark">Buscar <i
                                                     class="fas fa-search"></i></button>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Rua: *</label>
-                                            <input type="text" id="rua" name="rua" class="form-control"
-                                                placeholder="Rua" />
+                                            <input type="text" class="form-control" placeholder="Rua" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Bairro: *</label>
-                                            <input type="text" id="bairro" name="bairro" class="form-control"
-                                                placeholder="Bairro" />
+                                            <input type="text" class="form-control" placeholder="Bairro" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Cidade: *</label>
-                                            <input type="text" id="cidade" name="cidade" class="form-control"
-                                                placeholder="Cidade" />
+                                            <input type="text" class="form-control" placeholder="Cidade" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Estado: *</label>
-                                            <input type="text" id="estado" name="estado" class="form-control"
-                                                placeholder="Estado" />
+                                            <input type="text" class="form-control" placeholder="Estado" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Numero: *</label>
-                                            <input type="text" class="form-control" name="numero" placeholder="Numero" />
+                                            <input type="text" class="form-control" placeholder="Numero" />
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Complemento: </label>
-                                            <input type="text" class="form-control" name="complemento"
-                                                placeholder="Complemento" />
+                                            <input type="text" class="form-control" placeholder="Complemento" />
                                         </div>
                                     </div>
                                 </div>
@@ -282,21 +283,21 @@
                                         <div class="form-group">
                                             <label>Email: </label>
                                             <input type="text" class="form-control" name="email"
-                                                placeholder="Email do cliente" />
+                                                placeholder="Complemento" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Telefone: </label>
                                             <input type="text" class="form-control" name="telefone"
-                                                placeholder="Telefone do cliente" />
+                                                placeholder="Complemento" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Whatspp: </label>
                                             <input type="text" class="form-control" name="whatsapp"
-                                                placeholder="Whatsapp do cliente" />
+                                                placeholder="Complemento" />
                                         </div>
                                     </div>
                                 </div>
