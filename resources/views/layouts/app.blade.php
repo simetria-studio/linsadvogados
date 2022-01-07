@@ -80,7 +80,7 @@
                         <li>
                             <a href="#" class="iq-waves-effect">
                                 <i class="ri-file-search-line"></i>
-                                <span>Pericia</span>
+                                <span>Perícia</span>
                             </a>
                         </li>
                         {{-- <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Apps</span></li> --}}
@@ -95,7 +95,7 @@
             <div class="iq-sidebar-logo">
                 <div class="top-logo">
                     <a href="index.html" class="logo">
-                        <img src="images/logo.gif" class="img-fluid" alt="Logotipo">
+                        <img src="{{ url('assets/img/logo.png') }}" class="img-fluid" alt="Logotipo">
                         <span>vito</span>
                     </a>
                 </div>
