@@ -1,7 +1,14 @@
 <?php
 
+<<<<<<< Updated upstream
 
 use App\Http\Controllers\CepController;
+=======
+use App\Http\Controllers\Paginas\AudienciaController;
+use App\Http\Controllers\Paginas\ClientesController;
+use App\Http\Controllers\Paginas\FinanceiroController;
+use App\Http\Controllers\Paginas\PericiaController;
+>>>>>>> Stashed changes
 use App\Http\Controllers\Painel\ContaController;
 use App\Http\Controllers\Painel\PerfilController;
 use App\Http\Controllers\Paginas\PericiaController;
@@ -35,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     route::get('clientes', [ClientesController::class, 'index'])->name('clientes');
     route::get('financeiro', [FinanceiroController::class, 'index'])->name('financeiro');
     route::get('pericia', [PericiaController::class, 'index'])->name('pericia');
+    route::get('audiencia', [AudienciaController::class, 'index'])->name('audiencia');
     route::post('clientes-store', [ClientesController::class, 'store'])->name('clientes.store');
     route::any('clientesdelete/{id}', [ClientesController::class, 'destroy'])->name('clientes.delete');
 });
