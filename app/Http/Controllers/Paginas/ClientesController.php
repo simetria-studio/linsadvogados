@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Paginas;
 
-use App\Models\Adress;
-use App\Models\Cliente;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Facade\FlareClient\Http\Client;
 use App\Http\Controllers\Controller;
+use App\Models\Cliente;
+use Facade\FlareClient\Http\Client;
 use Intervention\Image\ImageManagerStatic;
 
 class ClientesController extends Controller
@@ -19,7 +18,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::with('adress')->paginate(15);
+        $clientes = Cliente::get();
         return view('paginas.clientes', get_defined_vars());
     }
 
@@ -56,7 +55,7 @@ class ClientesController extends Controller
         $img->save($originalPath . $name);
 
 
-        $users = Cliente::create([
+        $product = Cliente::create([
             'name' => $request->input('name'),
             'date_birth' => $request->input('date_birth'),
             'conjugue' => $request->input('conjugue'),
@@ -71,16 +70,6 @@ class ClientesController extends Controller
             'whatsapp' => $request->input('whatsapp'),
             'image' => $name,
 
-        ]);
-        $adress = Adress::create([
-            'user_id' => $users->id,
-            'cep' => $request->cep,
-            'rua' => $request->rua,
-            'bairro' => $request->bairro,
-            'cidade' => $request->cidade,
-            'estado' => $request->estado,
-            'numero' => $request->numero,
-            'complemento' => $request->complemento,
 
         ]);
         return redirect()->back()->with('success', 'Produto criado com sucesso!');
@@ -94,9 +83,7 @@ class ClientesController extends Controller
      */
     public function show($id)
     {
-        $cliente = Cliente::with('adress')->find($id);
-        // dd($cliente);
-        return view('paginas.clientes-ver', get_defined_vars());
+        //
     }
 
     /**
@@ -107,9 +94,7 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
-        $cliente = Cliente::with('adress')->find($id);
-        // dd($cliente);
-        return view('paginas.clientes-editar', get_defined_vars());
+        //
     }
 
     /**
@@ -121,35 +106,7 @@ class ClientesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = Cliente::find($id);
-
-        $user->update([
-            'name' => $request->input('name'),
-            'date_birth' => $request->input('date_birth'),
-            'conjugue' => $request->input('conjugue'),
-            'rg' => $request->input('rg'),
-            'cpf' => $request->input('cpf'),
-            'requerimento' => $request->input('requerimento'),
-            'numero_processo' => $request->input('numero_processo'),
-            'requerimento' => $request->input('requerimento'),
-            'numero_processo' => $request->input('numero_processo'),
-            'telefone' => $request->input('telefone'),
-            'email' => $request->input('email'),
-            'whatsapp' => $request->input('whatsapp'),
-
-        ]);
-        // $adress = Adress::create([
-        //     'user_id' => $users->id,
-        //     'cep' => $request->cep,
-        //     'rua' => $request->rua,
-        //     'bairro' => $request->bairro,
-        //     'cidade' => $request->cidade,
-        //     'estado' => $request->estado,
-        //     'numero' => $request->numero,
-        //     'complemento' => $request->complemento,
-
-        // ]);
-        return redirect()->back()->with('success', 'Produto criado com sucesso!');
+        //
     }
 
     /**
@@ -171,13 +128,5 @@ class ClientesController extends Controller
                 return response()->json(array('success' => true));
             }
         }
-    }
-    public function search(Request $request)
-    {
-        $pesquisa = $request->search;
-
-        $clientes = Cliente::where('cpf', 'like', '%' . $pesquisa . '%')->get();
-
-        return view('paginas.clientes-busca', get_defined_vars());
     }
 }
