@@ -104,30 +104,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="form-wizard1" class="text-center mt-4">
-                        <ul id="top-tab-list" class="p-0">
-                            <li class="active" id="account">
-                                <a href="javascript:void();">
-                                    <i class="ri-lock-unlock-line"></i><span>Cliente</span>
-                                </a>
-                            </li>
-                            <li id="personal">
-                                <a href="javascript:void();">
-                                    <i class="ri-user-fill"></i><span>Endereço</span>
-                                </a>
-                            </li>
-                            <li id="payment">
-                                <a href="javascript:void();">
-                                    <i class="ri-camera-fill"></i><span>Foto</span>
-                                </a>
-                            </li>
-                            <li id="confirm">
-                                <a href="javascript:void();">
-                                    <i class="ri-check-fill"></i><span>Finalizar</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- fieldsets -->
+                    <form id="form-wizard1" class="text-center mt-4" method="post" action="{{ route('clientes.store') }}">
+                        @csrf
                         <fieldset>
                             <div class="form-card text-left">
                                 <div class="row">
@@ -135,14 +113,15 @@
                                         <h3 class="mb-4">Informações do Cliente:</h3>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Step 1 - 4</h2>
+                                        <h2 class="steps">Step 1 - 5</h2>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Nome:</label>
-                                            <input type="text" class="form-control" name="email" placeholder="Nome do cliente" />
+                                            <input type="text" class="form-control" name="name"
+                                                placeholder="Nome do cliente" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -154,12 +133,12 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Conjuguê: *</label>
-                                            <select class="form-control" id="exampleFormControlSelect1">
+                                            <select class="form-control" name="conjugue" id="exampleFormControlSelect1">
                                                 <option selected="" disabled="">Selecione</option>
-                                                <option>Casado</option>
-                                                <option>Solteiro</option>
-                                                <option>Divorciado</option>
-                                                <option>Viúvo(a)</option>
+                                                <option value="Casado">Casado</option>
+                                                <option value="Solteiro">Solteiro</option>
+                                                <option value="Divorciado">Divorciado</option>
+                                                <option value="Viúvo">Viúvo(a)</option>
 
                                             </select>
                                         </div>
@@ -167,13 +146,15 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>CPF:</label>
-                                            <input type="text" class="form-control" name="email" placeholder="CPF do cliente" />
+                                            <input type="text" class="form-control" name="email"
+                                                placeholder="CPF do cliente" />
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>RG:</label>
-                                            <input type="text" class="form-control" name="email" placeholder="RG do cliente" />
+                                            <input type="text" class="form-control" name="email"
+                                                placeholder="RG do cliente" />
                                         </div>
                                     </div>
                                 </div>
@@ -185,39 +166,61 @@
                             <div class="form-card text-left">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h3 class="mb-4">Personal Information:</h3>
+                                        <h3 class="mb-4">Endereço:</h3>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Step 2 - 4</h2>
+                                        <h2 class="steps">Step 2 - 5</h2>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>First Name: *</label>
+                                            <label>cep: *</label>
                                             <input type="text" class="form-control" name="fname"
-                                                placeholder="First Name" />
+                                                placeholder="Digite o cep" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group" style="margin-top: 36px;">
+                                            <button type="button" class="btn btn-dark">Buscar <i
+                                                    class="fas fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Rua: *</label>
+                                            <input type="text" class="form-control" name="phno" placeholder="Rua" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Last Name: *</label>
-                                            <input type="text" class="form-control" name="lname"
-                                                placeholder="Last Name" />
+                                            <label>Bairro: *</label>
+                                            <input type="text" class="form-control" name="phno_2" placeholder="Bairro" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Contact No.: *</label>
-                                            <input type="text" class="form-control" name="phno"
-                                                placeholder="Contact No." />
+                                            <label>Cidade: *</label>
+                                            <input type="text" class="form-control" name="phno_2" placeholder="Cidade" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Alternate Contact No.: *</label>
+                                            <label>Estado: *</label>
+                                            <input type="text" class="form-control" name="phno_2" placeholder="Estado" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Numero: *</label>
+                                            <input type="text" class="form-control" name="phno_2" placeholder="Numero" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Complemento: </label>
                                             <input type="text" class="form-control" name="phno_2"
-                                                placeholder="Alternate Contact No." />
+                                                placeholder="Complemento" />
                                         </div>
                                     </div>
                                 </div>
@@ -232,45 +235,83 @@
                             <div class="form-card text-left">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h3 class="mb-4">Image Upload:</h3>
+                                        <h3 class="mb-4">Foto do Cliente:</h3>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Step 3 - 4</h2>
+                                        <h2 class="steps">Step 3 - 5</h2>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Upload Your Photo:</label>
+                                    <label>Upload da foto do cliente:</label>
                                     <input type="file" class="form-control" name="pic" accept="image/*">
                                 </div>
-                                <div class="form-group">
-                                    <label>Upload Signature Photo:</label>
-                                    <input type="file" class="form-control" name="pic-2" accept="image/*">
+
+                            </div>
+                            <button type="button" name="next" class="btn btn-primary next action-button float-right"
+                                value="Submit">Cadastrar</button>
+                            <button type="button" name="previous"
+                                class="btn btn-dark previous action-button-previous float-right mr-3"
+                                value="Previous">Anterior</button>
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-card text-left">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h3 class="mb-4">Contatos:</h3>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 4 - 5</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Email: </label>
+                                            <input type="text" class="form-control" name="phno_2"
+                                                placeholder="Complemento" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Telefone: </label>
+                                            <input type="text" class="form-control" name="phno_2"
+                                                placeholder="Complemento" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Whatspp: </label>
+                                            <input type="text" class="form-control" name="phno_2"
+                                                placeholder="Complemento" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <button type="button" name="next" class="btn btn-primary next action-button float-right"
-                                value="Submit">Submit</button>
+                                value="Submit">Cadastrar</button>
                             <button type="button" name="previous"
                                 class="btn btn-dark previous action-button-previous float-right mr-3"
-                                value="Previous">Previous</button>
+                                value="Previous">Anterior</button>
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h3 class="mb-4 text-left">Finish:</h3>
+                                        <h3 class="mb-4 text-left">Finalizar:</h3>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Step 4 - 4</h2>
+                                        <h2 class="steps">Step 5 - 5</h2>
                                     </div>
                                 </div> <br><br>
                                 <h2 class="text-success text-center"><strong>SUCCESS !</strong></h2> <br>
                                 <div class="row justify-content-center">
-                                    <div class="col-3"> <img src="images/page-img/img-success.png"
+                                    <div class="col-3"> <img
+                                            src="{{ url('dark-html/images/page-img/img-success.png') }}"
                                             class="fit-image" alt="fit-image"> </div>
                                 </div> <br><br>
                                 <div class="row justify-content-center">
                                     <div class="col-7 text-center">
-                                        <h5 class="purple-text text-center">You Have Successfully Signed Up</h5>
+                                        <h5 class="purple-text text-center">Cliente cadastrado com sucesso!</h5>
                                     </div>
                                 </div>
                             </div>

@@ -30,4 +30,6 @@ Route::middleware(['auth'])->group(function () {
     route::get('edit-perfil', [PerfilEditController::class, 'index'])->name('edit-perfil');
     route::get('privacidade', [PrivacidadeController::class, 'index'])->name('privacidade');
     route::get('clientes', [ClientesController::class, 'index'])->name('clientes');
+
+    route::post('clientes-store', [ClientesController::class, 'store'])->name('clientes.store');
 });

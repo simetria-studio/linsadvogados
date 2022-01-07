@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Paginas;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Facade\FlareClient\Http\Client;
+use App\Http\Controllers\Controller;
+use Intervention\Image\ImageManagerStatic;
 
 class ClientesController extends Controller
 {
@@ -35,7 +38,37 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        // dd($data);
+        // $price = str_replace(['.', ','], ['', '.'], $data['price']);
+        $img = ImageManagerStatic::make($data['image']);
+
+        $name = Str::random() . '.jpg';
+
+        $originalPath = storagepath('app/public/clientes'.auth()->user()->id.'/');
+        if (!file_exists($originalPath)) {
+            mkdir($originalPath, 0777, true);
+        }
+
+        $img->save($originalPath . $name);
+
+
+        $product = Client::create([
+            'name' => $request->input('name'),
+            'date_birth' => $request->input('date_birth'),
+            'conjugue' => $request->input('conjugue'),
+            'rg' => $request->input('rg'),
+            'cpf' => $request->input('cpf'),
+            'requerimento' => $request->input('requerimento'),
+            'numero_processo' => $request->input('numero_processo'),
+            'telefone' => $request->input('telefone'),
+            'email' => $request->input('email'),
+            'whatsapp' => $request->input('whatsapp'),
+            'image' => $name,
+
+
+        ]);
+        return redirect()->back()->with('success', 'Produto criado com sucesso!');
     }
 
     /**
