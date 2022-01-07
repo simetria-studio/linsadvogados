@@ -33,16 +33,159 @@
 </head>
 
 <body>
-    {{-- <div id="loading">
+    <div id="loading">
         <div id="loading-center">
         </div>
-    </div> --}}
+    </div>
     <div class="wrapper">
+        <div class="iq-sidebar">
+            <div class="iq-sidebar-logo d-flex justify-content-between">
+                <a href="{{ route('home') }}">
+                    <img src="{{ url('assets/img/logo.png') }}" class="img-fluid" alt="" width="80" height="80">
+                </a>
+                <div class="iq-menu-bt-sidebar">
+                    <div class="iq-menu-bt align-self-center">
+                        <div class="wrapper-menu">
+                            <div class="main-circle"><i class="ri-arrow-left-s-line"></i></div>
+                            <div class="hover-circle"><i class="ri-arrow-right-s-line"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sidebar-scrollbar">
+                <nav class="iq-sidebar-menu">
+                    <ul id="iq-sidebar-toggle" class="iq-menu">
+                        <li class="iq-menu-title">
+                            <i class="ri-subtract-line"></i>
+                            <span>Dashboard</span>
+                        </li>
+                        <li class="">
+                            <a href="{{ Route('home') }}" class="iq-waves-effect">
+                                <i class="ri-home-3-line"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="iq-waves-effect">
+                                <i class="ri-money-dollar-circle-line"></i>
+                                <span>Financeiro</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('clientes') }}" class="iq-waves-effect">
+                                <i class="ri-group-line"></i>
+                                <span>Clientes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="iq-waves-effect">
+                                <i class="ri-file-search-line"></i>
+                                <span>Pericia</span>
+                            </a>
+                        </li>
+                        {{-- <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Apps</span></li> --}}
+                    </ul>
+                </nav>
+                <div class="p-3"></div>
+            </div>
+        </div>
+      <!-- TOP Nav Bar -->
+      <div class="iq-top-navbar">
+        <div class="iq-navbar-custom">
+            <div class="iq-sidebar-logo">
+                <div class="top-logo">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo.gif" class="img-fluid" alt="Logotipo">
+                        <span>vito</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light p-0">
+                <div class="navbar-left">
+
+                    <div class="iq-search-bar">
+
+                    </div>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-label="Toggle navigation">
+                    <i class="ri-menu-3-line"></i>
+                </button>
+                <div class="iq-menu-bt align-self-center">
+                    <div class="wrapper-menu">
+                        <div class="main-circle"><i class="ri-arrow-left-s-line"></i></div>
+                        <div class="hover-circle"><i class="ri-arrow-right-s-line"></i></div>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-list">
+                    </ul>
+                </div>
+                <ul class="navbar-list">
+                    <li>
+                        <a href="#"
+                            class="search-toggle iq-waves-effect d-flex align-items-center bg-primary rounded">
+                            <img src="https://ui-avatars.com/api/?size=512&amp;background=5B4699&amp;color=fff&amp;name={{ auth()->user()->name }}" class="img-fluid rounded mr-3"
+                                alt="user">
+                            <div class="caption">
+                                <h6 class="mb-0 line-height text-white">{{ Auth::user()->name }}</h6>
+                                <span class="font-size-12 text-white">Disponivel</span>
+                            </div>
+                        </a>
+                        <div class="iq-sub-dropdown iq-user-dropdown">
+                            <div class="iq-card shadow-none m-0">
+                                <div class="iq-card-body p-0 ">
+                                    <div class="bg-primary p-3">
+                                        <h5 class="mb-0 text-white line-height">Olá {{ Auth::user()->name }}
+                                        </h5>
+                                        <span class="text-white font-size-12">Disponivel</span>
+                                    </div>
+
+                                    <div class="d-inline-block w-100 text-center p-3">
+
+                                        <a class="bg-primary iq-sign-btn" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                               document.getElementById('logout-form').submit();">
+                                            {{ __('Sair') }}<i class="ri-login-box-line ml-2"></i>
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+
+                                        {{-- <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">Sign
+                                              out</a> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- TOP Nav Bar END -->
+
         <div id="content-page" class="content-page">
             @yield('content')
         </div>
     </div>
-    @include('layouts.footer')
+    <footer class="bg-white iq-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="terms-of-service.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 text-right">
+                    Copyright {{ date('Y') }} <a href="#">Cube</a> Todos Direitos Reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{{ asset('dark-html/js/jquery.min.js') }}"></script>
@@ -85,72 +228,6 @@
     <script src="{{ asset('dark-html/js/chart-custom.js') }}"></script>
     <!-- Custom JavaScript -->
     <script src="{{ asset('dark-html/js/custom.js') }}"></script>
-</body>
-
-</html>
-
-
-
-
-{{-- <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div> --}}
 </body>
 
 </html>
