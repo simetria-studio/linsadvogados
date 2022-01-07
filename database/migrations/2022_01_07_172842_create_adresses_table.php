@@ -15,6 +15,14 @@ class CreateAdressesTable extends Migration
     {
         Schema::create('adresses', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->string('cep')->nullable();
+            $table->string('rua')->nullable();
+            $table->string('bairro')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('estado')->nullable();
+            $table->string('numero')->nullable();
+            $table->string('complemento')->nullable();
             $table->timestamps();
         });
     }
