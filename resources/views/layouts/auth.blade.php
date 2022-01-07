@@ -20,7 +20,7 @@
     <!-- Typography CSS -->
     <link rel="stylesheet" href="{{ asset('dark-html/css/typography.css') }}">
     <!-- Style CSS -->
-    <link rel="stylesheet" href="{{ asset('dark-html/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('dark-html/css/style.min.css') }}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{ asset('dark-html/css/responsive.css') }}">
     <!-- Full calendar -->

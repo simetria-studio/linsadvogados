@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Lins Advogados</title>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -20,7 +20,7 @@
     <!-- Typography CSS -->
     <link rel="stylesheet" href="{{ asset('dark-html/css/typography.css') }}">
     <!-- Style CSS -->
-    <link rel="stylesheet" href="{{ asset('dark-html/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('dark-html/css/style.min.css') }}">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="{{ asset('dark-html/css/responsive.css') }}">
     <!-- Full calendar -->
@@ -33,6 +33,10 @@
 </head>
 
 <body>
+    {{-- <div id="loading">
+        <div id="loading-center">
+        </div>
+    </div> --}}
     <div class="wrapper">
         <div id="content-page" class="content-page">
             @yield('content')
