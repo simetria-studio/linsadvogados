@@ -15,9 +15,10 @@ class CreateFinanceirosTable extends Migration
     {
         Schema::create('financeiros', function (Blueprint $table) {
             $table->id();
-            $table->decimal('valor_total');
-            $table->decimal('dividido_em');
-            $table->decimal('valor_parcela');
+            $table->integer('cliente_id');
+            $table->string('valor_total');
+            $table->string('dividido_em');
+            $table->string('valor_parcela');
             $table->timestamps();
         });
     }

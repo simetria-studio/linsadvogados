@@ -9,6 +9,7 @@ class Financeiro extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'cliente_id',
         'valor_total',
         'dividido_em',
         'valor_parcela',
