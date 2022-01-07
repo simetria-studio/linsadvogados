@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="iq-waves-effect">
+                    <a href="{{ route('clientes') }}" class="iq-waves-effect">
 
                         <span>Clientes</span>
                     </a>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Paginas\ClientesController;
 use App\Http\Controllers\Painel\ContaController;
 use App\Http\Controllers\Painel\PerfilController;
 use App\Http\Controllers\Painel\PerfilEditController;
@@ -28,3 +29,4 @@ route::get('conta', [ContaController::class, 'index'])->name('conta');
 route::get('perfil', [PerfilController::class, 'index'])->name('perfil');
 route::get('edit-perfil', [PerfilEditController::class, 'index'])->name('edit-perfil');
 route::get('privacidade', [PrivacidadeController::class, 'index'])->name('privacidade');
+route::get('clientes', [ClientesController::class, 'index'])->name('clientes');

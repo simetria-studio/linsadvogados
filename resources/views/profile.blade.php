@@ -9,7 +9,7 @@
                     <div class="iq-card-body profile-page p-0">
                         <div class="profile-header">
                             <div class="cover-container">
-                                <img src="images/page-img/profile-bg.jpg" alt="profile-bg" class="rounded img-fluid">
+                                <img src="{{ url('dark-html/images/page-img/profile-bg.jpg') }}" alt="profile-bg" class="rounded img-fluid">
                                 <ul class="header-nav d-flex flex-wrap justify-end p-0 m-0">
                                     <li><a href="javascript:void();"><i class="ri-pencil-line"></i></a></li>
                                     <li><a href="javascript:void();"><i class="ri-settings-4-line"></i></a></li>
@@ -21,7 +21,7 @@
                                         <div class="user-detail pl-5">
                                             <div class="d-flex flex-wrap align-items-center">
                                                 <div class="profile-img pr-4">
-                                                    <img src="images/user/11.png" alt="profile-img"
+                                                    <img src="{{ url('dark-html/images/user/11.png') }}" alt="profile-img"
                                                         class="avatar-130 img-fluid" />
                                                 </div>
                                                 <div class="profile-detail d-flex align-items-center">
@@ -92,32 +92,38 @@
                             </div>
                             <div class="iq-card-body p-0">
                                 <ul class="profile-img-gallary d-flex flex-wrap p-0 m-0">
+                                    <li class="col-md-4 col-6 pl-1 pr-0 pb-1">
+                                        <a href="javascript:void();">
+                                            <img src="{{ url('dark-html/images/page-img/g1.jpg') }}" alt="gallary-image"
+                                                class="img-fluid w-100" />
+                                        </a>
+                                    </li>
+                                    <li class="col-md-4 col-6 pl-1 pr-0 pb-1">
+                                        <a href="javascript:void();">
+                                            <img src="{{ url('dark-html/images/page-img/g2.jpg') }}" alt="gallary-image"
+                                                class="img-fluid w-100" />
+                                        </a>
+                                    </li>
                                     <li class="col-md-4 col-6 pl-1 pr-0 pb-1"><a href="javascript:void();"><img
-                                                src="images/page-img/g1.jpg" alt="gallary-image"
+                                                src="{{ url('dark-html/images/page-img/g3.jpg') }}" alt="gallary-image"
                                                 class="img-fluid w-100" /></a></li>
                                     <li class="col-md-4 col-6 pl-1 pr-0 pb-1"><a href="javascript:void();"><img
-                                                src="images/page-img/g2.jpg" alt="gallary-image"
+                                                src="{{ url('dark-html/images/page-img/g4.jpg') }}" alt="gallary-image"
                                                 class="img-fluid w-100" /></a></li>
                                     <li class="col-md-4 col-6 pl-1 pr-0 pb-1"><a href="javascript:void();"><img
-                                                src="images/page-img/g3.jpg" alt="gallary-image"
+                                                src="{{ url('dark-html/images/page-img/g5.jpg') }}" alt="gallary-image"
                                                 class="img-fluid w-100" /></a></li>
                                     <li class="col-md-4 col-6 pl-1 pr-0 pb-1"><a href="javascript:void();"><img
-                                                src="images/page-img/g4.jpg" alt="gallary-image"
-                                                class="img-fluid w-100" /></a></li>
-                                    <li class="col-md-4 col-6 pl-1 pr-0 pb-1"><a href="javascript:void();"><img
-                                                src="images/page-img/g5.jpg" alt="gallary-image"
-                                                class="img-fluid w-100" /></a></li>
-                                    <li class="col-md-4 col-6 pl-1 pr-0 pb-1"><a href="javascript:void();"><img
-                                                src="images/page-img/g6.jpg" alt="gallary-image"
+                                                src="{{ url('dark-html/images/page-img/g6.jpg') }}" alt="gallary-image"
                                                 class="img-fluid w-100" /></a></li>
                                     <li class="col-md-4 col-6 pl-1 pr-0 pb-0"><a href="javascript:void();"><img
-                                                src="images/page-img/g7.jpg" alt="gallary-image"
+                                                src="{{ url('dark-html/images/page-img/g7.jpg') }}" alt="gallary-image"
                                                 class="img-fluid w-100" /></a></li>
                                     <li class="col-md-4 col-6 pl-1 pr-0 pb-0"><a href="javascript:void();"><img
-                                                src="images/page-img/g8.jpg" alt="gallary-image"
+                                                src="{{ url('dark-html/images/page-img/g8.jpg') }}" alt="gallary-image"
                                                 class="img-fluid w-100" /></a></li>
                                     <li class="col-md-4 col-6 pl-1 pr-0 pb-0"><a href="javascript:void();"><img
-                                                src="images/page-img/g9.jpg" alt="gallary-image"
+                                                src="{{ url('dark-html/images/page-img/g9.jpg') }}" alt="gallary-image"
                                                 class="img-fluid w-100" /></a></li>
                                 </ul>
                             </div>
@@ -131,7 +137,8 @@
                             <div class="iq-card-body">
                                 <ul class="pages-lists m-0 p-0">
                                     <li class="d-flex mb-4 align-items-center">
-                                        <div class="user-img img-fluid"><img src="images/page-img/42.jpg" alt="story-img"
+                                        <div class="user-img img-fluid"><img
+                                                src="{{ url('dark-html/images/page-img/42.jpg') }}" alt="story-img"
                                                 class="rounded-circle avatar-40"></div>
                                         <div class="media-support-info ml-3">
                                             <h6>UI/Ux Designer</h6>
@@ -143,7 +150,8 @@
                                         </div>
                                     </li>
                                     <li class="d-flex mb-4 align-items-center">
-                                        <div class="user-img img-fluid"><img src="images/page-img/43.jpg" alt="story-img"
+                                        <div class="user-img img-fluid"><img
+                                                src="{{ url('dark-html/images/page-img/43.jpg') }}" alt="story-img"
                                                 class="rounded-circle avatar-40"></div>
                                         <div class="media-support-info ml-3">
                                             <h6>Marketing</h6>
@@ -155,7 +163,8 @@
                                         </div>
                                     </li>
                                     <li class="d-flex mb-4 align-items-center">
-                                        <div class="user-img img-fluid"><img src="images/page-img/44.jpg" alt="story-img"
+                                        <div class="user-img img-fluid"><img
+                                                src="{{ url('dark-html/images/page-img/44.jpg') }}" alt="story-img"
                                                 class="rounded-circle avatar-40"></div>
                                         <div class="media-support-info ml-3">
                                             <h6>Web Developer</h6>
@@ -167,7 +176,8 @@
                                         </div>
                                     </li>
                                     <li class="d-flex align-items-center">
-                                        <div class="user-img img-fluid"><img src="images/page-img/45.jpg" alt="story-img"
+                                        <div class="user-img img-fluid"><img
+                                                src="{{ url('dark-html/images/page-img/45.jpg') }}" alt="story-img"
                                                 class="rounded-circle avatar-40"></div>
                                         <div class="media-support-info ml-3">
                                             <h6>Latest News</h6>
@@ -191,38 +201,41 @@
                             <div class="iq-card-body">
                                 <ul class="pages-lists m-0 p-0">
                                     <li class="d-flex mb-4 align-items-center">
-                                        <div class="user-img img-fluid"><img src="images/page-img/46.jpg" alt="story-img"
-                                                class="rounded-circle avatar-40"></div>
+                                        <div class="user-img img-fluid">
+                                            <img src="{{ url('dark-html/images/page-img/46.jpg') }}" alt="story-img"
+                                                class="rounded-circle avatar-40">
+                                        </div>
                                         <div class="media-support-info ml-3">
                                             <h5>Foodtown</h5>
                                         </div>
-
                                     </li>
                                     <li class="d-flex mb-4 align-items-center">
-                                        <div class="user-img img-fluid"><img src="images/page-img/47.jpg" alt="story-img"
-                                                class="rounded-circle avatar-40"></div>
+                                        <div class="user-img img-fluid">
+                                            <img src="{{ url('dark-html/images/page-img/47.jpg') }}" alt="story-img"
+                                                class="rounded-circle avatar-40">
+                                        </div>
                                         <div class="media-support-info ml-3">
                                             <h5>Touro Univercity</h5>
                                         </div>
-
                                     </li>
                                     <li class="d-flex mb-4 align-items-center">
-                                        <div class="user-img img-fluid"><img src="images/page-img/48.jpg" alt="story-img"
-                                                class="rounded-circle avatar-40"></div>
+                                        <div class="user-img img-fluid">
+                                            <img src="{{ url('dark-html/images/page-img/48.jpg') }}" alt="story-img"
+                                                class="rounded-circle avatar-40">
+                                        </div>
                                         <div class="media-support-info ml-3">
                                             <h5>Moviehouse & Eatery</h5>
                                         </div>
-
                                     </li>
                                     <li class="d-flex align-items-center">
-                                        <div class="user-img img-fluid"><img src="images/page-img/49.jpg" alt="story-img"
-                                                class="rounded-circle avatar-40"></div>
+                                        <div class="user-img img-fluid">
+                                            <img src="{{ url('dark-html/images/page-img/49.jpg') }}" alt="story-img"
+                                                class="rounded-circle avatar-40">
+                                        </div>
                                         <div class="media-support-info ml-3">
                                             <h5>Coffee + Crisp</h5>
                                         </div>
-
                                     </li>
-
                                 </ul>
                             </div>
                         </div>
@@ -235,7 +248,7 @@
                                         <div class="user-post-data p-3">
                                             <div class="d-flex flex-wrap">
                                                 <div class="media-support-user-img mr-3">
-                                                    <img class="rounded-circle img-fluid" src="images/user/01.jpg" alt="">
+                                                    <img class="rounded-circle img-fluid" src="{{ url('dark-html/images/user/01.jpg') }}" alt="">
                                                 </div>
                                                 <div class="media-support-info mt-2">
                                                     <h5 class="mb-0"><a href="#" class="">Anna
@@ -263,7 +276,7 @@
                                             </div>
                                         </div>
                                         <div class="user-post">
-                                            <a href="javascript:void();"><img src="images/page-img/p1.jpg" alt="post-image"
+                                            <a href="javascript:void();"><img src="{{ url('dark-html/images/page-img/p1.jpg') }}" alt="post-image"
                                                     class="img-fluid" /></a>
                                         </div>
                                         <div class="comment-area p-3">
@@ -282,23 +295,23 @@
                                                     <div class="iq-media-group">
                                                         <a href="#" class="iq-media">
                                                             <img class="img-fluid avatar-40 rounded-circle"
-                                                                src="images/user/05.jpg" alt="">
+                                                                src="{{ url('dark-html/images/user/05.jpg') }}" alt="">
                                                         </a>
                                                         <a href="#" class="iq-media">
                                                             <img class="img-fluid avatar-40 rounded-circle"
-                                                                src="images/user/06.jpg" alt="">
+                                                                src="{{ url('dark-html/images/user/06.jpg') }}" alt="">
                                                         </a>
                                                         <a href="#" class="iq-media">
                                                             <img class="img-fluid avatar-40 rounded-circle"
-                                                                src="images/user/07.jpg" alt="">
+                                                                src="{{ url('dark-html/images/user/07.jpg') }}" alt="">
                                                         </a>
                                                         <a href="#" class="iq-media">
                                                             <img class="img-fluid avatar-40 rounded-circle"
-                                                                src="images/user/08.jpg" alt="">
+                                                                src="{{ url('dark-html/images/user/08.jpg') }}" alt="">
                                                         </a>
                                                         <a href="#" class="iq-media">
                                                             <img class="img-fluid avatar-40 rounded-circle"
-                                                                src="images/user/09.jpg" alt="">
+                                                                src="{{ url('dark-html/images/user/09.jpg') }}" alt="">
                                                         </a>
                                                     </div>
                                                     <span class="ml-2">+140 more</span>
@@ -313,7 +326,7 @@
                                                 <li class="mb-2">
                                                     <div class="d-flex flex-wrap">
                                                         <div class="user-img">
-                                                            <img src="images/user/02.jpg" alt="userimg"
+                                                            <img src="{{ url('dark-html/images/user/02.jpg') }}" alt="userimg"
                                                                 class="avatar-35 rounded-circle img-fluid">
                                                         </div>
                                                         <div class="comment-data-block ml-3">
@@ -333,7 +346,7 @@
                                                 <li>
                                                     <div class="d-flex flex-wrap">
                                                         <div class="user-img">
-                                                            <img src="images/user/03.jpg" alt="userimg"
+                                                            <img src="{{ url('dark-html/images/user/03.jpg') }}" alt="userimg"
                                                                 class="avatar-35 rounded-circle img-fluid">
                                                         </div>
                                                         <div class="comment-data-block ml-3">
@@ -368,7 +381,7 @@
                                         <div class="user-post-data p-3">
                                             <div class="d-flex flex-wrap">
                                                 <div class="media-support-user-img mr-3">
-                                                    <img class="rounded-circle img-fluid" src="images/user/02.jpg" alt="">
+                                                    <img class="rounded-circle img-fluid" src="{{ url('dark-html/images/user/02.jpg') }}" alt="">
                                                 </div>
                                                 <div class="media-support-info mt-2">
                                                     <h5 class="mb-0"><a href="#" class="">jenny
@@ -419,23 +432,23 @@
                                                     <div class="iq-media-group">
                                                         <a href="#" class="iq-media">
                                                             <img class="img-fluid avatar-40 rounded-circle"
-                                                                src="images/user/05.jpg" alt="">
+                                                                src="{{ url('dark-html/images/user/05.jpg') }}" alt="">
                                                         </a>
                                                         <a href="#" class="iq-media">
                                                             <img class="img-fluid avatar-40 rounded-circle"
-                                                                src="images/user/06.jpg" alt="">
+                                                                src="{{ url('dark-html/images/user/06.jpg') }}" alt="">
                                                         </a>
                                                         <a href="#" class="iq-media">
                                                             <img class="img-fluid avatar-40 rounded-circle"
-                                                                src="images/user/07.jpg" alt="">
+                                                                src="{{ url('dark-html/images/user/07.jpg') }}" alt="">
                                                         </a>
                                                         <a href="#" class="iq-media">
                                                             <img class="img-fluid avatar-40 rounded-circle"
-                                                                src="images/user/08.jpg" alt="">
+                                                                src="{{ url('dark-html/images/user/08.jpg') }}" alt="">
                                                         </a>
                                                         <a href="#" class="iq-media">
                                                             <img class="img-fluid avatar-40 rounded-circle"
-                                                                src="images/user/09.jpg" alt="">
+                                                                src="{{ url('dark-html/images/user/09.jpg') }}" alt="">
                                                         </a>
                                                     </div>
                                                     <span class="ml-2">+140 more</span>
