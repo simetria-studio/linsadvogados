@@ -22,8 +22,9 @@
                                             @csrf
                                             <div class="row">
                                                 <div class="form-group mb-0 col-md-6">
-                                                    <input type="search" class="form-control" id="exampleInputSearch"
-                                                        placeholder="Digite o cpf para buscar" name="search" aria-controls="user-list-table">
+                                                    <input type="search" name="search" class="form-control"
+                                                        id="exampleInputSearch" placeholder="Buscar"
+                                                        aria-controls="user-list-table">
                                                 </div>
                                                 <div class="col-md-4">
                                                     <button class="btn btn-success">Buscar</button>
@@ -47,7 +48,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($clientes as $cliente)
+                                    @forelse ($clientes as $cliente )
                                         <tr>
                                             <td class="text-center"><img class="rounded-circle img-fluid avatar-40"
                                                     src="{{ asset('storage/clientes/' . $cliente->image) }}"
@@ -60,7 +61,7 @@
                                             <td>
                                                 <div class="flex align-items-center list-user-action">
                                                     <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                        title="" data-original-title="Editar" href="{{ route('clientes.edit', $cliente->id) }}" ><i
+                                                        title="" data-original-title="Editar" href="#"><i
                                                             class="ri-pencil-line"></i></a>
                                                     <a class="iq-bg-primary" onclick="deleteItem(this)" data-toggle="tooltip" data-original-title="Deletar"
                                                         data-id="{{ $cliente->id }}"><i
@@ -72,7 +73,11 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <h3>Nenhum cliente encontrador com esse cpf</h3>
+                                    @endforelse
+
+
 
                                 </tbody>
                             </table>
@@ -80,7 +85,7 @@
                         <div class="row justify-content-between mt-3">
 
                             <div class="col-md-6">
-                                {{ $clientes->links() }}
+                                {{-- {{ $clientes->links() }} --}}
                             </div>
                         </div>
                     </div>

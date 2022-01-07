@@ -1,11 +1,19 @@
 <?php
 
 <<<<<<< ddd22ca8f4d88203ae8d4bab6d1d87f26c83c6c6
+<<<<<<< ddd22ca8f4d88203ae8d4bab6d1d87f26c83c6c6
+=======
+<<<<<<< Updated upstream
+>>>>>>> Auto stash before checking out "HEAD"
 use App\Http\Controllers\Paginas\ClientesController;
 use App\Http\Controllers\Paginas\FinanceiroController;
+=======
+
+>>>>>>> Stashed changes
 use App\Http\Controllers\Paginas\PericiaController;
 use App\Http\Controllers\Painel\ContaController;
 use App\Http\Controllers\Painel\PerfilController;
+<<<<<<< ddd22ca8f4d88203ae8d4bab6d1d87f26c83c6c6
 =======
 
 use App\Http\Controllers\CepController;
@@ -14,9 +22,12 @@ use App\Http\Controllers\Painel\PerfilController;
 use App\Http\Controllers\Paginas\PericiaController;
 use App\Http\Controllers\Paginas\ClientesController;
 >>>>>>> asd
+=======
+use App\Http\Controllers\Paginas\ClientesController;
+>>>>>>> Auto stash before checking out "HEAD"
 use App\Http\Controllers\Painel\PerfilEditController;
+use App\Http\Controllers\Paginas\FinanceiroController;
 use App\Http\Controllers\Painel\PrivacidadeController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,4 +56,11 @@ Route::middleware(['auth'])->group(function () {
     route::get('pericia', [PericiaController::class, 'index'])->name('pericia');
     route::post('clientes-store', [ClientesController::class, 'store'])->name('clientes.store');
     route::any('clientesdelete/{id}', [ClientesController::class, 'destroy'])->name('clientes.delete');
+    route::get('clientesver/{id}', [ClientesController::class, 'show'])->name('clientes.show');
+    route::get('clienteseditar/{id}', [ClientesController::class, 'edit'])->name('clientes.edit');
+    route::post('clienteseupdate/{id}', [ClientesController::class, 'update'])->name('clientes.update');
+
+    Route::get('buscacep', [CepController::class, 'buscaCep'])->name('address.cep');
+
+    Route::post('search', [ClientesController::class, 'search'])->name('search');
 });
