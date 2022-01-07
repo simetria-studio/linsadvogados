@@ -1,30 +1,11 @@
 <?php
 
-<<<<<<< ddd22ca8f4d88203ae8d4bab6d1d87f26c83c6c6
-<<<<<<< ddd22ca8f4d88203ae8d4bab6d1d87f26c83c6c6
-=======
-<<<<<<< Updated upstream
->>>>>>> Auto stash before checking out "HEAD"
-use App\Http\Controllers\Paginas\ClientesController;
-use App\Http\Controllers\Paginas\FinanceiroController;
-=======
-
->>>>>>> Stashed changes
-use App\Http\Controllers\Paginas\PericiaController;
-use App\Http\Controllers\Painel\ContaController;
-use App\Http\Controllers\Painel\PerfilController;
-<<<<<<< ddd22ca8f4d88203ae8d4bab6d1d87f26c83c6c6
-=======
 
 use App\Http\Controllers\CepController;
 use App\Http\Controllers\Painel\ContaController;
 use App\Http\Controllers\Painel\PerfilController;
 use App\Http\Controllers\Paginas\PericiaController;
 use App\Http\Controllers\Paginas\ClientesController;
->>>>>>> asd
-=======
-use App\Http\Controllers\Paginas\ClientesController;
->>>>>>> Auto stash before checking out "HEAD"
 use App\Http\Controllers\Painel\PerfilEditController;
 use App\Http\Controllers\Painel\PrivacidadeController;
 use Illuminate\Support\Facades\Route;
