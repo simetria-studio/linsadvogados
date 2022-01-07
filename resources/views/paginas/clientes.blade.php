@@ -32,9 +32,8 @@
                                 aria-describedby="user-list-page-info">
                                 <thead>
                                     <tr>
-                                        <th>Perfil</th>
+                                        <th>Foto</th>
                                         <th>Name</th>
-                                        <th>Telefone</th>
                                         <th>CPF</th>
                                         <th>Requerimento</th>
                                         <th>Processo</th>
@@ -42,28 +41,31 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="text-center"><img class="rounded-circle img-fluid avatar-40"
-                                                src="{{ url('dark-html/images/user/01.jpg') }}" alt="profile"></td>
-                                        <td>Anna Sthesia</td>
-                                        <td>(760) 756 7568</td>
-                                        <td>000.000.000-00</td>
-                                        <td>Acme Corporation</td>
-                                        <td>123456489456</td>
-                                        <td>
-                                            <div class="flex align-items-center list-user-action">
-                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                    title="" data-original-title="Editar" href="#"><i
-                                                        class="ri-pencil-line"></i></a>
-                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                    title="" data-original-title="Deletar" href="#"><i
-                                                        class="ri-delete-bin-line"></i></a>
-                                                <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                    title="" data-original-title="Ver" href="#"><i
-                                                        class="ri-eye-line"></i></a>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    @foreach ($clientes as $cliente)
+                                        <tr>
+                                            <td class="text-center"><img class="rounded-circle img-fluid avatar-40"
+                                                    src="{{ asset('storage/clientes/' . $cliente->image) }}" alt="profile">
+                                            </td>
+                                            <td>{{ $cliente->name }}</td>
+                                            <td>{{ $cliente->cpf }}</td>
+                                            <td>{{ $cliente->requerimento }}</td>
+                                            <td>{{ $cliente->numero_processo }}</td>
+                                            <td>
+                                                <div class="flex align-items-center list-user-action">
+                                                    <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
+                                                        title="" data-original-title="Editar" href="#"><i
+                                                            class="ri-pencil-line"></i></a>
+                                                    <a class="iq-bg-primary" onclick="deleteItem(this)"
+                                                        data-id="{{ $cliente->id }}"><i
+                                                            class="ri-delete-bin-line"></i></a>
+                                                    <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
+                                                        title="" data-original-title="Ver" href="#"><i
+                                                            class="ri-eye-line"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+
                                 </tbody>
                             </table>
                         </div>
@@ -104,7 +106,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="form-wizard1" class="text-center mt-4" method="post" action="{{ route('clientes.store') }}">
+                    <form id="form-wizard1" class="text-center mt-4" method="post" action="{{ route('clientes.store') }}"
+                        enctype="multipart/form-data">
                         @csrf
                         <fieldset>
                             <div class="form-card text-left">
@@ -127,7 +130,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Data de nascimento: *</label>
-                                            <input type="date" class="form-control" name="uname" placeholder="" />
+                                            <input type="date" class="form-control" name="date_birth" placeholder="" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -143,18 +146,32 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>CPF:</label>
-                                            <input type="text" class="form-control" name="email"
+                                            <input type="text" class="form-control" name="cpf"
                                                 placeholder="CPF do cliente" />
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>RG:</label>
-                                            <input type="text" class="form-control" name="email"
+                                            <input type="text" class="form-control" name="rg"
                                                 placeholder="RG do cliente" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Requerimento:</label>
+                                            <input type="text" class="form-control" name="requerimento"
+                                                placeholder="Requerimento" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Numero do Processo:</label>
+                                            <input type="text" class="form-control" name="numero_processo"
+                                                placeholder="Número do processo" />
                                         </div>
                                     </div>
                                 </div>
@@ -176,8 +193,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>cep: *</label>
-                                            <input type="text" class="form-control" name="fname"
-                                                placeholder="Digite o cep" />
+                                            <input type="text" class="form-control" placeholder="Digite o cep" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -189,38 +205,37 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Rua: *</label>
-                                            <input type="text" class="form-control" name="phno" placeholder="Rua" />
+                                            <input type="text" class="form-control" placeholder="Rua" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Bairro: *</label>
-                                            <input type="text" class="form-control" name="phno_2" placeholder="Bairro" />
+                                            <input type="text" class="form-control" placeholder="Bairro" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Cidade: *</label>
-                                            <input type="text" class="form-control" name="phno_2" placeholder="Cidade" />
+                                            <input type="text" class="form-control" placeholder="Cidade" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Estado: *</label>
-                                            <input type="text" class="form-control" name="phno_2" placeholder="Estado" />
+                                            <input type="text" class="form-control" placeholder="Estado" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Numero: *</label>
-                                            <input type="text" class="form-control" name="phno_2" placeholder="Numero" />
+                                            <input type="text" class="form-control" placeholder="Numero" />
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Complemento: </label>
-                                            <input type="text" class="form-control" name="phno_2"
-                                                placeholder="Complemento" />
+                                            <input type="text" class="form-control" placeholder="Complemento" />
                                         </div>
                                     </div>
                                 </div>
@@ -243,7 +258,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Upload da foto do cliente:</label>
-                                    <input type="file" class="form-control" name="pic" accept="image/*">
+                                    <input type="file" class="form-control" name="image" accept="image/*">
                                 </div>
 
                             </div>
@@ -267,27 +282,27 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Email: </label>
-                                            <input type="text" class="form-control" name="phno_2"
+                                            <input type="text" class="form-control" name="email"
                                                 placeholder="Complemento" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Telefone: </label>
-                                            <input type="text" class="form-control" name="phno_2"
+                                            <input type="text" class="form-control" name="telefone"
                                                 placeholder="Complemento" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Whatspp: </label>
-                                            <input type="text" class="form-control" name="phno_2"
+                                            <input type="text" class="form-control" name="whatsapp"
                                                 placeholder="Complemento" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" name="next" class="btn btn-primary next action-button float-right"
+                            <button type="submit" name="next" class="btn btn-primary next action-button float-right"
                                 value="Submit">Cadastrar</button>
                             <button type="button" name="previous"
                                 class="btn btn-dark previous action-button-previous float-right mr-3"
@@ -321,4 +336,64 @@
             </div>
         </div>
     </div>
+    <script type="application/javascript">
+        function deleteItem(e) {
+
+            let id = e.getAttribute('data-id');
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            });
+
+            swalWithBootstrapButtons.fire({
+                title: 'Você tem certeza?',
+                text: "Está deletando permanentemente!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Sim, delete!',
+                cancelButtonText: 'Não, cancelar!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+                    if (result.isConfirmed) {
+
+                        $.ajax({
+                            type: 'DELETE',
+                            url: '{{ url('clientesdelete') }}/' + id,
+                            data: {
+                                "_token": "{{ csrf_token() }}",
+                            },
+                            success: function(data) {
+                                if (data.success) {
+                                    swalWithBootstrapButtons.fire(
+                                        'Deletado!',
+                                        'Seu produto foi deletado!',
+                                        "success"
+
+                                    );
+
+                                }
+
+                            }
+                        });
+
+                    }
+                    location.reload();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelado',
+                        'Este produto está seguro!)',
+                        'error'
+                    );
+                }
+            });
+
+        }
+    </script>
 @endsection

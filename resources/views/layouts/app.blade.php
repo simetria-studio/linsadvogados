@@ -175,7 +175,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6">
-               
+
                 </div>
                 <div class="col-lg-6 text-right">
                     Copyright {{ date('Y') }} <a href="#">Cube</a> Todos Direitos Reservados.
@@ -225,6 +225,7 @@
     <script src="{{ asset('dark-html/js/chart-custom.js') }}"></script>
     <!-- Custom JavaScript -->
     <script src="{{ asset('dark-html/js/custom.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 
 </html>

@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Paginas;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Facade\FlareClient\Http\Client;
 use App\Http\Controllers\Controller;
+use App\Models\Cliente;
+use Facade\FlareClient\Http\Client;
 use Intervention\Image\ImageManagerStatic;
 
 class ClientesController extends Controller
@@ -17,7 +18,8 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        return view('paginas.clientes');
+        $clientes = Cliente::get();
+        return view('paginas.clientes', get_defined_vars());
     }
 
     /**
@@ -45,7 +47,7 @@ class ClientesController extends Controller
 
         $name = Str::random() . '.jpg';
 
-        $originalPath = storagepath('app/public/clientes'.auth()->user()->id.'/');
+        $originalPath = storage_path('app/public/clientes/');
         if (!file_exists($originalPath)) {
             mkdir($originalPath, 0777, true);
         }
@@ -53,12 +55,14 @@ class ClientesController extends Controller
         $img->save($originalPath . $name);
 
 
-        $product = Client::create([
+        $product = Cliente::create([
             'name' => $request->input('name'),
             'date_birth' => $request->input('date_birth'),
             'conjugue' => $request->input('conjugue'),
             'rg' => $request->input('rg'),
             'cpf' => $request->input('cpf'),
+            'requerimento' => $request->input('requerimento'),
+            'numero_processo' => $request->input('numero_processo'),
             'requerimento' => $request->input('requerimento'),
             'numero_processo' => $request->input('numero_processo'),
             'telefone' => $request->input('telefone'),
@@ -111,8 +115,18 @@ class ClientesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if ($request->ajax()) {
+
+            $user = Cliente::findOrFail($id);
+
+            if ($user) {
+
+                $user->delete();
+
+                return response()->json(array('success' => true));
+            }
+        }
     }
 }
