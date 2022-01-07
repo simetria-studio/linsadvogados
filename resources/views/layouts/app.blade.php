@@ -33,7 +33,6 @@
 </head>
 
 <body>
-
     <div class="wrapper">
         <div id="content-page" class="content-page">
             @yield('content')

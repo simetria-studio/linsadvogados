@@ -19,7 +19,7 @@
                     <i class="ri-subtract-line"></i>
                     <span>Dashboard</span>
                 </li>
-                <li class="active">
+                <li class="">
                     <a href="{{ Route('home') }}" class="iq-waves-effect">
                         <i class="ri-home-3-line"></i>
                         <span>Home</span>
@@ -27,19 +27,19 @@
                 </li>
                 <li>
                     <a href="#" class="iq-waves-effect">
-
+                        <i class="ri-money-dollar-circle-line"></i>
                         <span>Financeiro</span>
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('clientes') }}" class="iq-waves-effect">
-
+                        <i class="ri-group-line"></i>
                         <span>Clientes</span>
                     </a>
                 </li>
                 <li>
                     <a href="#" class="iq-waves-effect">
-
+                        <i class="ri-file-search-line"></i>
                         <span>Pericia</span>
                     </a>
                 </li>
