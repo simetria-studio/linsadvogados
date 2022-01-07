@@ -66,7 +66,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="iq-waves-effect">
+                            <a href="{{ route('financeiro') }}" class="iq-waves-effect">
                                 <i class="ri-money-dollar-circle-line"></i>
                                 <span>Financeiro</span>
                             </a>
