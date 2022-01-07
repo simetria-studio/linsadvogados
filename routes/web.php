@@ -1,14 +1,10 @@
 <?php
 
-<<<<<<< Updated upstream
-use App\Http\Controllers\Paginas\ClientesController;
-use App\Http\Controllers\Paginas\FinanceiroController;
-=======
 
->>>>>>> Stashed changes
-use App\Http\Controllers\Paginas\PericiaController;
+use App\Http\Controllers\CepController;
 use App\Http\Controllers\Painel\ContaController;
 use App\Http\Controllers\Painel\PerfilController;
+use App\Http\Controllers\Paginas\PericiaController;
 use App\Http\Controllers\Paginas\ClientesController;
 use App\Http\Controllers\Painel\PerfilEditController;
 use App\Http\Controllers\Paginas\FinanceiroController;
