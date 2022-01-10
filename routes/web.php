@@ -1,13 +1,12 @@
 <?php
-
-
 use App\Http\Controllers\CepController;
+use App\Http\Controllers\Paginas\AudienciaController;
+use App\Http\Controllers\Paginas\ClientesController;
+use App\Http\Controllers\Paginas\FinanceiroController;
+use App\Http\Controllers\Paginas\PericiaController;
 use App\Http\Controllers\Painel\ContaController;
 use App\Http\Controllers\Painel\PerfilController;
-use App\Http\Controllers\Paginas\PericiaController;
-use App\Http\Controllers\Paginas\ClientesController;
 use App\Http\Controllers\Painel\PerfilEditController;
-use App\Http\Controllers\Paginas\FinanceiroController;
 use App\Http\Controllers\Painel\PrivacidadeController;
 
 /*
@@ -41,8 +40,6 @@ Route::middleware(['auth'])->group(function () {
     route::get('clientesver/{id}', [ClientesController::class, 'show'])->name('clientes.show');
     route::get('clienteseditar/{id}', [ClientesController::class, 'edit'])->name('clientes.edit');
     route::post('clienteseupdate/{id}', [ClientesController::class, 'update'])->name('clientes.update');
-
     Route::get('buscacep', [CepController::class, 'buscaCep'])->name('address.cep');
-
     Route::post('search', [ClientesController::class, 'search'])->name('search');
 });

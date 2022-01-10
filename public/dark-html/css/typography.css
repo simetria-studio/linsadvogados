@@ -239,7 +239,7 @@ background: -o-linear-gradient(left, rgba(130,122,243,0.2) 0%, rgba(180,122,243,
 background: -ms-linear-gradient(left, rgba(130,122,243,0.2) 0%, rgba(180,122,243,0.2) 100%);
 background: linear-gradient(to right, rgba(130,122,243,0.2) 0%, rgba(180,122,243,0.2) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--iq-primary)', endColorstr='var(--iq-primary-light)', GradientType=1 );
- color: var(--iq-primary) !important; 
+ color: var(--iq-primary) !important;
 }
 .iq-bg-secondary { background: var(--iq-light-secondary) !important; color: var(--iq-body-text) !important; }
 .iq-bg-success { background: var(--iq-light-bg-success) !important; color: var(--iq-success) !important; }
@@ -388,7 +388,7 @@ background: -o-linear-gradient(left, rgba(180,122,243,1) 0%, rgba(130,122,243,1)
 background: -ms-linear-gradient(left, rgba(180,122,243,1) 0%, rgba(130,122,243,1) 100%);
 background: linear-gradient(to right, rgba(180,122,243,1) 0%, rgba(130,122,243,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--iq-primary-light)', endColorstr='var(--iq-primary)', GradientType=1 );
-border-color: var(--iq-primary); 
+border-color: var(--iq-primary);
 }
 
 a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover{
