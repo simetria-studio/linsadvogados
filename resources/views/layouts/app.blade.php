@@ -123,10 +123,10 @@
                   <ul class="navbar-list">
                      <li>
                         <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center bg-primary rounded">
-                           <img src="images/user/1.jpg" class="img-fluid rounded mr-3" alt="user">
+                           <img src="https://ui-avatars.com/api/?size=512&amp;background=5B4699&amp;color=fff&amp;name={{  auth()->user()->name }}" class="img-fluid rounded mr-3" alt="user">
                            <div class="caption">
-                              <h6 class="mb-0 line-height text-white">Nik jone</h6>
-                              <span class="font-size-12 text-white">Available</span>
+                              <h6 class="mb-0 line-height text-white">{{ auth()->user()->name }}</h6>
+                              <span class="font-size-12 text-white">Disponivel</span>
                            </div>
                         </a>
                         <div class="iq-sub-dropdown iq-user-dropdown">
