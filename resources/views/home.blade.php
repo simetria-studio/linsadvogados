@@ -32,15 +32,12 @@
                     </div>
                 </div>
             </a>
-            <a href="#" class="col-lg-4">
+            <a href="{{ route('audiencia') }}" class="col-lg-4">
                 <div class="card text-white bg-danger iq-mb-3">
                     <div class="card-body">
-                        <h4 class="card-title text-white">Primary card title</h4>
+                        <h4 class="card-title text-white">Audiências</h4>
                         <blockquote class="blockquote mb-0">
-                            <p class="font-size-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                                posuere
-                                erat a ante.</p>
-
+                            <p class="font-size-14">Veja e marque o dia de suas Audiêcias</p>
                         </blockquote>
                     </div>
                 </div>

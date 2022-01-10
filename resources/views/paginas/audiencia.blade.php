@@ -7,7 +7,11 @@
             <div class="iq-card">
                 <div class="iq-card-header d-flex justify-content-between">
                     <div class="iq-header-title">
-                        <h4 class="card-title">Lista Perícia</h4>
+                        <h4 class="card-title">Lista Audiência</h4>
+                    </div>
+                    <div>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">Adicionar
+                            Novo</button>
                     </div>
                 </div>
                 <div class="iq-card-body">
@@ -28,19 +32,19 @@
                             aria-describedby="user-list-page-info">
                             <thead>
                                 <tr>
-                                    <th>Segurado</th>
-                                    <th>Local</th>
-                                    <th>Data</th>
-                                    <th>Hora</th>
+                                    <th>Nome</th>
+                                    <th>Dia</th>
+                                    <th>Horario</th>
+                                    <th>Vara</th>
                                     <th>Ação</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>Anna Sthesia</td>
-                                    <td>Anna Sthesia</td>
-                                    <td>(760) 756 7568</td>
-                                    <td>000.000.000-00</td>
+                                    <td>07/01/2022</td>
+                                    <td>16:30</td>
+                                    <td>nao sei</td>
                                     <td>
                                         <div class="flex align-items-center list-user-action">
                                             <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"

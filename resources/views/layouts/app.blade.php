@@ -83,6 +83,12 @@
                                 <span>Perícia</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('audiencia') }}" class="iq-waves-effect">
+                                <i><x-iconpark-hammerandanvil-o /></i>
+                                <span>Audiência</span>
+                            </a>
+                        </li>
                         {{-- <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Apps</span></li> --}}
                     </ul>
                 </nav>
