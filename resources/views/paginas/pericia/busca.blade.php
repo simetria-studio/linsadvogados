@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -7,22 +6,26 @@
                 <div class="iq-card">
                     <div class="iq-card-header d-flex justify-content-between">
                         <div class="iq-header-title">
-                            <h4 class="card-title">Lista Perícia</h4>
+                            <h4 class="card-title">Financeiro</h4>
                         </div>
-                        <button class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">Adicionar
-                            Novo
-                        </button>
+                        <div>
+                            <button class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">Adicionar
+                                Novo</button>
+                        </div>
                     </div>
-
                     <div class="iq-card-body">
                         <div class="table-responsive">
                             <div class="row justify-content-between">
                                 <div class="col-sm-12 col-md-6">
                                     <div id="user_list_datatable_info" class="dataTables_filter">
-                                        <form class="mr-3 position-relative">
+                                        <form class="mr-3 position-relative"  action="{{ route('search1') }}" method="POST">
+                                            @csrf
                                             <div class="form-group mb-0">
                                                 <input type="search" class="form-control" id="exampleInputSearch"
                                                     placeholder="Buscar" aria-controls="user-list-table">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button class="btn btn-success">Buscar</button>
                                             </div>
                                         </form>
                                     </div>
@@ -32,35 +35,41 @@
                                 aria-describedby="user-list-page-info">
                                 <thead>
                                     <tr>
-                                        <th>Segurado</th>
-                                        <th>Local</th>
-                                        <th>Data</th>
-                                        <th>Hora</th>
+                                        <th>Name</th>
+                                        <th>CPF</th>
+                                        <th>Telefone</th>
+                                        <th>Valor Total</th>
+                                        <th>Dividido Em</th>
+                                        <th>Valor da Parcela</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($pericias as $pericia)
+                                    @foreach ($financeiros as $financeiro)
                                         <tr>
-                                            <td>{{ $pericia->segurado }}</td>
-                                            <td>{{ $pericia->local }}</td>
-                                            <td>{{ $pericia->data }}</td>
-                                            <td>{{ $pericia->hora }}</td>
+                                            <td>{{ $financeiro->name }}</td>
+                                            <td>{{ $financeiro->cpf }}</td>
+                                            <td>{{ $financeiro->telefone }}</td>
+                                            <td>{{ $financeiro->valor_total }}</td>
+                                            <td>{{ $financeiro->dividido_em }}</td>
+                                            <td>{{ $financeiro->valor_parcela }}</td>
                                             <td>
                                                 <div class="flex align-items-center list-user-action">
                                                     <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
                                                         title="" data-original-title="Editar"
-                                                        href="{{ route('pericia.edit', $pericia->id) }}">
-                                                        <i class="ri-pencil-line"></i>
-                                                    </a>
+                                                        href="{{ route('financeiro.edit', $financeiro->id) }}"><i
+                                                            class="ri-pencil-line"></i></a>
                                                     <a class="iq-bg-primary" onclick="deleteItem(this)"
                                                         data-toggle="tooltip" data-original-title="Deletar"
-                                                        data-id="{{ $pericia->id }}">
+                                                        data-id="{{ $financeiro->id }}">
                                                         <i class="ri-delete-bin-line"></i>
                                                     </a>
+
                                                 </div>
                                             </td>
                                         </tr>
+                                         @empty
+                                        <h3>Nenhum cliente encontrador com esse cpf</h3>
                                     @endforeach
                                 </tbody>
                             </table>
@@ -96,13 +105,14 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Pericia</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Pagamentos</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="form-wizard1" class="text-center mt-4" method="post" action="{{ route('pericia.store') }}">
+                    <form id="form-wizard1" class="text-center mt-4" method="post"
+                        action="{{ route('financeiro.store') }}">
                         @csrf
                         <fieldset>
                             <div class="form-card text-left">
@@ -114,29 +124,44 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Segurado:</label>
-                                            <input type="text" class="form-control" name="segurado" />
+                                            <label>Nome:</label>
+                                            <input type="text" class="form-control" name="name"
+                                                placeholder="Nome do cliente" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Local: </label>
-                                            <input type="text" class="form-control" name="local" />
+                                            <label>CPF: *</label>
+                                            <input type="cpf" class="form-control" name="cpf" placeholder="" />
                                         </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Data:</label>
-                                            <input type="date" class="form-control" name="data" />
+                                            <label>Telefone:</label>
+                                            <input type="text" class="form-control" name="telefone"
+                                                placeholder="Telefone do cliente" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Hora:</label>
-                                            <input type="text" class="form-control" name="hora" />
+                                            <label>Valor Total:</label>
+                                            <input type="text" class="form-control" name="valor_total" />
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Dividido Em:</label>
+                                            <input type="text" class="form-control" name="dividido_em" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Valor da Parcela:</label>
+                                            <input type="text" class="form-control" name="valor_parcela" />
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <button type="submit" name="next" class="btn btn-primary next action-button float-right"
                                     value="Submit">Cadastrar</button>
@@ -195,7 +220,7 @@
 
                         $.ajax({
                             type: 'DELETE',
-                            url: '{{ url('periciadelete') }}/' + id,
+                            url: '{{ url('financeirodelete') }}/' + id,
                             data: {
                                 "_token": "{{ csrf_token() }}",
                             },

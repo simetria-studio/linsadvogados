@@ -96,7 +96,7 @@ class ClientesController extends Controller
     {
         $cliente = Cliente::with('adress')->find($id);
         // dd($cliente);
-        return view('paginas.clientes-ver', get_defined_vars());
+        return view('paginas.clientes.clientes-ver', get_defined_vars());
     }
 
     /**
@@ -109,7 +109,7 @@ class ClientesController extends Controller
     {
         $cliente = Cliente::with('adress')->find($id);
         // dd($cliente);
-        return view('paginas.clientes-editar', get_defined_vars());
+        return view('paginas.clientes.clientes-editar', get_defined_vars());
     }
 
     /**
@@ -178,6 +178,6 @@ class ClientesController extends Controller
 
         $clientes = Cliente::where('cpf', 'like', '%' . $pesquisa . '%')->get();
 
-        return view('paginas.clientes-busca', get_defined_vars());
+        return view('paginas.clientes.clientes-busca', get_defined_vars());
     }
 }

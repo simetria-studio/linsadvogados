@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Paginas;
 
 use App\Http\Controllers\Controller;
+use App\Models\Financeiro;
 use Illuminate\Http\Request;
 
 class FinanceiroController extends Controller
@@ -14,7 +15,8 @@ class FinanceiroController extends Controller
      */
     public function index()
     {
-        return view('paginas.financeiro');
+        $financeiros = Financeiro::all();
+        return view('paginas.financeiro', get_defined_vars());
     }
 
     /**
@@ -35,7 +37,16 @@ class FinanceiroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $users = Financeiro::create([
+            'name' => $request->input('name'),
+            'cpf' => $request->input('cpf'),
+            'telefone' => $request->input('telefone'),
+            'valor_total' => $request->input('valor_total'),
+            'dividido_em' => $request->input('dividido_em'),
+            'valor_parcela' => $request->input('valor_parcela'),
+        ]);
+        return redirect()->back()->with('success', 'Pagamento criado com sucesso!');
     }
 
     /**
@@ -46,7 +57,7 @@ class FinanceiroController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('paginas.financeiro.ver', get_defined_vars());
     }
 
     /**
@@ -57,7 +68,8 @@ class FinanceiroController extends Controller
      */
     public function edit($id)
     {
-        //
+        $financeiros = Financeiro::all()->find($id);
+        return view('paginas.financeiro.editar', get_defined_vars());
     }
 
     /**
@@ -69,7 +81,18 @@ class FinanceiroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $financeiros = Financeiro::find($id);
+
+        $financeiros->update([
+            'name' => $request->input('name'),
+            'cpf' => $request->input('cpf'),
+            'telefone' => $request->input('telefone'),
+            'valor_total' => $request->input('valor_total'),
+            'dividido_em' => $request->input('dividido_em'),
+            'valor_parcela' => $request->input('valor_parcela'),
+
+        ]);
+        return redirect()->back()->with('success', 'Atualizado com sucesso!');
     }
 
     /**
@@ -78,8 +101,27 @@ class FinanceiroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
+    { {
+            if ($request->ajax()) {
+
+                $financeiros = Financeiro::findOrFail($id);
+
+                if ($financeiros) {
+
+                    $financeiros->delete();
+
+                    return response()->json(array('success' => true));
+                }
+            }
+        }
+    }
+    public function search(Request $request)
     {
-        //
+        $pesquisa = $request->search;
+
+        $clientes = Financeiro::where('cpf', 'like', '%' . $pesquisa . '%')->get();
+
+        return view('paginas.financeiro.busca', get_defined_vars());
     }
 }

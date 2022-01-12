@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Paginas;
 
 use App\Http\Controllers\Controller;
+use App\Models\audiencia;
 use Illuminate\Http\Request;
 
 class AudienciaController extends Controller
@@ -14,7 +15,8 @@ class AudienciaController extends Controller
      */
     public function index()
     {
-        return view('paginas.audiencia');
+        $audiencias = audiencia::get();
+        return view('paginas.audiencia', get_defined_vars());
     }
 
     /**
@@ -35,7 +37,13 @@ class AudienciaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $audiencias = audiencia::create([
+            'name'     => $request->input('name'),
+            'dia'      => $request->input('dia'),
+            'horario'  => $request->input('horario'),
+            'vara'     => $request->input('vara'),
+        ]);
+        return redirect()->back()->with('success', 'Audiência adicionada com sucesso!');
     }
 
     /**
@@ -57,7 +65,9 @@ class AudienciaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $audiencias = audiencia::get()->find($id);
+        // dd($cliente);
+        return view('paginas.audiencia.editar', get_defined_vars());
     }
 
     /**
@@ -69,7 +79,15 @@ class AudienciaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $audiencias = audiencia::find($id);
+
+        $audiencias->update([
+            'name'     => $request->input('name'),
+            'dia'      => $request->input('dia'),
+            'horario'  => $request->input('horario'),
+            'vara'     => $request->input('vara'),
+        ]);
+        return redirect()->back()->with('success', 'Dados Atualizado com sucesso!');
     }
 
     /**
@@ -78,8 +96,18 @@ class AudienciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if ($request->ajax()) {
+
+            $audiencias = audiencia::findOrFail($id);
+
+            if ($audiencias) {
+
+                $audiencias->delete();
+
+                return response()->json(array('success' => true));
+            }
+        }
     }
 }

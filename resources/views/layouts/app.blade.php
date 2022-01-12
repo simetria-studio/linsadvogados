@@ -123,7 +123,7 @@
                   <ul class="navbar-list">
                      <li>
                         <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center bg-primary rounded">
-                           <img src="https://ui-avatars.com/api/?size=512&amp;background=5B4699&amp;color=fff&amp;name={{  auth()->user()->name }}" class="img-fluid rounded mr-3" alt="user">
+
                            <div class="caption">
                               <h6 class="mb-0 line-height text-white">{{ auth()->user()->name }}</h6>
                               <span class="font-size-12 text-white">Disponivel</span>
@@ -133,12 +133,12 @@
                            <div class="iq-card shadow-none m-0">
                               <div class="iq-card-body p-0 ">
                                  <div class="bg-primary p-3">
-                                    <h5 class="mb-0 text-white line-height">Hello Nik jone</h5>
-                                    <span class="text-white font-size-12">Available</span>
+                                    <h5 class="mb-0 text-white line-height">Olá {{ auth()->user()->name }}</h5>
+                                    <span class="text-white font-size-12">Disponivel</span>
                                  </div>
 
                                  <div class="d-inline-block w-100 text-center p-3">
-                                    <a class="bg-primary iq-sign-btn" href="sign-in.html" role="button">Sign out<i class="ri-login-box-line ml-2"></i></a>
+                                    <a class="bg-primary iq-sign-btn" href="#" role="button">Log out<i class="ri-login-box-line ml-2"></i></a>
                                  </div>
                               </div>
                            </div>

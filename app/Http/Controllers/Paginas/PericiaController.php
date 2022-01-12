@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Paginas;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pericia;
 use Illuminate\Http\Request;
 
 class PericiaController extends Controller
@@ -14,7 +15,8 @@ class PericiaController extends Controller
      */
     public function index()
     {
-        return view('paginas.pericia');
+        $pericias = Pericia::all();
+        return view('paginas.pericia', get_defined_vars());
     }
 
     /**
@@ -35,7 +37,13 @@ class PericiaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pericias = Pericia::create([
+            'segurado'  => $request->input('segurado'),
+            'local'     => $request->input('local'),
+            'data'      => $request->input('data'),
+            'hora'      => $request->input('hora'),
+        ]);
+        return redirect()->back()->with('success', 'Pagamento criado com sucesso!');
     }
 
     /**
@@ -57,7 +65,8 @@ class PericiaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pericias = Pericia::all()->find($id);
+        return view('paginas.pericia.editar', get_defined_vars());
     }
 
     /**
@@ -69,7 +78,16 @@ class PericiaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pericias = Pericia::find($id);
+
+        $pericias->update([
+            'segurado' => $request->input('segurado'),
+            'local'    => $request->input('local'),
+            'data'     => $request->input('data'),
+            'hora'     => $request->input('hora'),
+
+        ]);
+        return redirect()->back()->with('success', 'Atualizado com sucesso!');
     }
 
     /**
@@ -78,8 +96,27 @@ class PericiaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Request $request, $id)
+    { {
+            if ($request->ajax()) {
+
+                $pericias = Pericia::findOrFail($id);
+
+                if ($pericias) {
+
+                    $pericias->delete();
+
+                    return response()->json(array('success' => true));
+                }
+            }
+        }
     }
+    // public function search(Request $request)
+    // {
+    //     $pesquisa = $request->search;
+
+    //     $pericias = Pericia::where('cpf', 'like', '%' . $pesquisa . '%')->get();
+
+    //     return view('paginas.pericia.busca', get_defined_vars());
+    // }
 }
