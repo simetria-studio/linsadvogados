@@ -6,7 +6,7 @@
                 <div class="iq-card">
                     <div class="iq-card-header d-flex justify-content-between">
                         <div class="iq-header-title">
-                            <h4 class="card-title">Financeiro</h4>
+                            <h4 class="card-title">Processos Arquivados</h4>
                         </div>
                         <div>
                             <button class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">Adicionar
@@ -35,33 +35,30 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>CPF</th>
-                                        <th>Telefone</th>
-                                        <th>Valor Total</th>
-                                        <th>Dividido Em</th>
-                                        <th>Valor da Parcela</th>
-                                        <th>Data</th>
+                                        <th>Serviço</th>
+                                        <th>Motivo</th>
+                                        <th>Prazo</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($financeiros as $financeiro)
+                                    @foreach ($processos as $processo)
                                         <tr>
-                                            <td>{{ $financeiro->name }}</td>
-                                            <td>{{ $financeiro->cpf }}</td>
-                                            <td>{{ $financeiro->telefone }}</td>
-                                            <td>{{ $financeiro->valor_total }}</td>
-                                            <td>{{ $financeiro->dividido_em }}</td>
-                                            <td>{{ $financeiro->valor_parcela }}</td>
-                                            <td>{{ date('d/m/Y', strtotime($financeiro->data)) }}</td>
+                                            <td>{{ $processo->name }}</td>
+                                            <td>{{ $processo->cpf }}</td>
+                                            <td>{{ $processo->servico }}</td>
+                                            <td>{{ $processo->motivo }}</td>
+                                            <td>{{ date('d/m/Y', strtotime($processo->prazo)) }}</td>
+
                                             <td>
                                                 <div class="flex align-items-center list-user-action">
-                                                    <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
+                                                    {{-- <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
                                                         title="" data-original-title="Editar"
-                                                        href="{{ route('financeiro.edit', $financeiro->id) }}"><i
-                                                            class="ri-pencil-line"></i></a>
+                                                        href="{{ route('financeiro.edit', $processo->id) }}"><i
+                                                            class="ri-pencil-line"></i></a> --}}
                                                     <a class="iq-bg-primary" onclick="deleteItem(this)"
                                                         data-toggle="tooltip" data-original-title="Deletar"
-                                                        data-id="{{ $financeiro->id }}">
+                                                        data-id="{{ $processo->id }}">
                                                         <i class="ri-delete-bin-line"></i>
                                                     </a>
 
@@ -83,14 +80,14 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Pagamentos</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Processo Arquivado</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="form-wizard1" class="text-center mt-4" method="post"
-                        action="{{ route('financeiro.store') }}">
+                    <form id="form-wizard1" class="text-center mt-4" method="post" action="{{ route('processos.store') }}"
+                        enctype="multipart/form-data">
                         @csrf
                         <fieldset>
                             <div class="form-card text-left">
@@ -116,27 +113,16 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Telefone:</label>
-                                            <input type="text" class="form-control" name="telefone"
-                                                placeholder="Telefone do cliente" />
+                                            <label>Serviço:</label>
+                                            <input type="text" class="form-control" name="servico"
+                                                placeholder="Serviço" />
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Valor Total:</label>
-                                            <input type="text" id="valor" class="form-control" name="valor_total" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Dividido Em:</label>
-                                            <input type="text" class="form-control" name="dividido_em" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Valor da Parcela:</label>
-                                            <input type="text" id="parcela" class="form-control" name="valor_parcela" />
+                                            <label>Motivo:</label>
+                                            <input type="text" class="form-control" name="motivo"
+                                                placeholder="Motivo" />
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -145,6 +131,8 @@
                                             <input type="date" class="form-control" name="data" />
                                         </div>
                                     </div>
+
+
 
                                 </div>
                                 <button type="submit" name="next" class="btn btn-primary next action-button float-right"
@@ -204,7 +192,7 @@
 
                         $.ajax({
                             type: 'DELETE',
-                            url: '{{ url('financeirodelete') }}/' + id,
+                            url: '{{ url('precessosDelete') }}/' + id,
                             data: {
                                 "_token": "{{ csrf_token() }}",
                             },
@@ -212,7 +200,7 @@
                                 if (data.success) {
                                     swalWithBootstrapButtons.fire(
                                         'Deletado!',
-                                        'Seu divida foi deletada!',
+                                        'Seu processo foi deletada!',
                                         "success"
 
                                     );

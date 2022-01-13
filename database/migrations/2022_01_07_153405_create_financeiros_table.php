@@ -15,12 +15,13 @@ class CreateFinanceirosTable extends Migration
     {
         Schema::create('financeiros', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('cpf');
-            $table->string('telefone');
-            $table->string('valor_total');
-            $table->string('dividido_em');
-            $table->string('valor_parcela');
+            $table->string('name')->nullable();
+            $table->string('cpf')->nullable();
+            $table->string('telefone')->nullable();
+            $table->string('valor_total')->nullable();
+            $table->string('dividido_em')->nullable();
+            $table->string('valor_parcela')->nullable();
+            $table->string('data')->nullable();
             $table->timestamps();
         });
     }

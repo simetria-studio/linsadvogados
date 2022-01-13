@@ -262,7 +262,7 @@
 
                             </div>
                             <button type="button" name="next" class="btn btn-primary next action-button float-right"
-                                value="Submit">Cadastrar</button>
+                                value="Submit">Próximo</button>
                             <button type="button" name="previous"
                                 class="btn btn-dark previous action-button-previous float-right mr-3"
                                 value="Previous">Anterior</button>
@@ -299,6 +299,12 @@
                                                 placeholder="Whatsapp do cliente" />
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Obs: </label>
+                                            <textarea class="form-control" name="obs" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" name="next" class="btn btn-primary next action-button float-right"
@@ -307,6 +313,7 @@
                                 class="btn btn-dark previous action-button-previous float-right mr-3"
                                 value="Previous">Anterior</button>
                         </fieldset>
+
                         <fieldset>
                             <div class="form-card">
                                 <div class="row">
@@ -370,7 +377,7 @@
                                 if (data.success) {
                                     swalWithBootstrapButtons.fire(
                                         'Deletado!',
-                                        'Seu produto foi deletado!',
+                                        'Cliente deletado!',
                                         "success"
 
                                     );

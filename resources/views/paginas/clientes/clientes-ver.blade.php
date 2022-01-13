@@ -103,7 +103,11 @@
                                             value="{{ $cliente->adress->complemento ?? '' }}" id="fname" value="Nik" disabled>
                                     </div>
 
-
+                                    <div class="form-group col-md-12">
+                                        <label for="fname">Obs:</label>
+                                        <input type="text" class="form-control" value="{{ $cliente->obs }}" id="fname"
+                                            value="Nik" disabled>
+                                    </div>
 
 
                                 </div>

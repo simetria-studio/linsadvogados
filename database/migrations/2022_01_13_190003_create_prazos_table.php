@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAudienciasTable extends Migration
+class CreatePrazosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateAudienciasTable extends Migration
      */
     public function up()
     {
-        Schema::create('audiencias', function (Blueprint $table) {
+        Schema::create('prazos', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->date('dia')->nullable();
-            $table->string('horario')->nullable();
-            $table->string('vara')->nullable();
+            $table->string('cpf')->nullable();
+            $table->string('situacao')->nullable();
+            $table->string('servico')->nullable();
+            $table->date('prazo')->nullable();
+            $table->string('documento')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateAudienciasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('audiencias');
+        Schema::dropIfExists('prazos');
     }
 }

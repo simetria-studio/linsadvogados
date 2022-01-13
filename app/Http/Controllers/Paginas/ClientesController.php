@@ -69,6 +69,7 @@ class ClientesController extends Controller
             'telefone' => $request->input('telefone'),
             'email' => $request->input('email'),
             'whatsapp' => $request->input('whatsapp'),
+            'obs' => $request->input('obs'),
             'image' => $name,
 
         ]);

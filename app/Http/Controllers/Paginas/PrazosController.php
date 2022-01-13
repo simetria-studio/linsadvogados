@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Paginas;
 
-use App\Http\Controllers\Controller;
-use App\Models\Financeiro;
+use App\Models\Prazo;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Intervention\Image\ImageManagerStatic;
 
-class FinanceiroController extends Controller
+class PrazosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +17,8 @@ class FinanceiroController extends Controller
      */
     public function index()
     {
-        $financeiros = Financeiro::all();
-        return view('paginas.financeiro', get_defined_vars());
+        $prazos = Prazo::get();
+        return view('paginas.prazos', get_defined_vars());
     }
 
     /**
@@ -37,17 +39,33 @@ class FinanceiroController extends Controller
      */
     public function store(Request $request)
     {
+        $name = "";
+        if ($request->hasFile('documento')) {
 
-        $users = Financeiro::create([
+            $img = ImageManagerStatic::make($request->file('documento')->getRealPath());
+
+            $name = Str::random() . '.jpg';
+
+            $originalPath = storage_path('app/public/docomentos/');
+            if (!file_exists($originalPath)) {
+                mkdir($originalPath, 0777, true);
+            }
+
+            $img->save($originalPath . $name);
+        }
+
+
+        $users = Prazo::create([
             'name' => $request->input('name'),
             'cpf' => $request->input('cpf'),
-            'telefone' => $request->input('telefone'),
-            'valor_total' => $request->input('valor_total'),
-            'dividido_em' => $request->input('dividido_em'),
-            'valor_parcela' => $request->input('valor_parcela'),
-            'data' => $request->input('data'),
+            'servico' => $request->input('servico'),
+            'situacao' => $request->input('situacao'),
+            'prazo' => $request->input('prazo'),
+            'documento' => $name,
+
         ]);
         return redirect()->back()->with('success', 'Pagamento criado com sucesso!');
+
     }
 
     /**
@@ -58,7 +76,7 @@ class FinanceiroController extends Controller
      */
     public function show($id)
     {
-        return view('paginas.financeiro.ver', get_defined_vars());
+        //
     }
 
     /**
@@ -69,8 +87,7 @@ class FinanceiroController extends Controller
      */
     public function edit($id)
     {
-        $financeiros = Financeiro::all()->find($id);
-        return view('paginas.financeiro.editar', get_defined_vars());
+        //
     }
 
     /**
@@ -82,18 +99,7 @@ class FinanceiroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $financeiros = Financeiro::find($id);
-
-        $financeiros->update([
-            'name' => $request->input('name'),
-            'cpf' => $request->input('cpf'),
-            'telefone' => $request->input('telefone'),
-            'valor_total' => $request->input('valor_total'),
-            'dividido_em' => $request->input('dividido_em'),
-            'valor_parcela' => $request->input('valor_parcela'),
-
-        ]);
-        return redirect()->back()->with('success', 'Atualizado com sucesso!');
+        //
     }
 
     /**
@@ -103,26 +109,19 @@ class FinanceiroController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, $id)
-    { {
+    {
+        {
             if ($request->ajax()) {
 
-                $financeiros = Financeiro::findOrFail($id);
+                $pericias = Prazo::findOrFail($id);
 
-                if ($financeiros) {
+                if ($pericias) {
 
-                    $financeiros->delete();
+                    $pericias->delete();
 
                     return response()->json(array('success' => true));
                 }
             }
         }
-    }
-    public function search(Request $request)
-    {
-        $pesquisa = $request->search;
-
-        $clientes = Financeiro::where('cpf', 'like', '%' . $pesquisa . '%')->get();
-
-        return view('paginas.financeiro.busca', get_defined_vars());
     }
 }

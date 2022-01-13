@@ -91,6 +91,22 @@
                                 <span>Audiência</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('prazos') }}" class="iq-waves-effect">
+                                <i>
+                                    <x-iconpark-hammerandanvil-o />
+                                </i>
+                                <span>Prazos a cumprir</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('processos') }}" class="iq-waves-effect">
+                                <i>
+                                    <x-iconpark-hammerandanvil-o />
+                                </i>
+                                <span>Processos Arquivados</span>
+                            </a>
+                        </li>
                         {{-- <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Apps</span></li> --}}
                     </ul>
                 </nav>
