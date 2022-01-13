@@ -12,9 +12,9 @@ class Prazo extends Model
         'name',
         'cpf',
         'servico',
-        'motivo',
-        'data',
-    
+        'situacao',
+        'prazo',
+        'documento',
 
     ];
 }

@@ -12,9 +12,9 @@ class Processo extends Model
         'name',
         'cpf',
         'servico',
-        'situacao',
-        'prazo',
-        'documento',
+        'motivo',
+        'data',
+       
 
     ];
 }
