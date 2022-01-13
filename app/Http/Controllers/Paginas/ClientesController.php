@@ -41,20 +41,20 @@ class ClientesController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        // dd($data);
-        // $price = str_replace(['.', ','], ['', '.'], $data['price']);
-        $img = ImageManagerStatic::make($data['image']);
+        $name = "";
+        if ($request->hasFile('image')) {
 
-        $name = Str::random() . '.jpg';
+            $img = ImageManagerStatic::make($request->file('image')->getRealPath());
 
-        $originalPath = storage_path('app/public/clientes/');
-        if (!file_exists($originalPath)) {
-            mkdir($originalPath, 0777, true);
+            $name = Str::random() . '.jpg';
+
+            $originalPath = storage_path('app/public/clientes/');
+            if (!file_exists($originalPath)) {
+                mkdir($originalPath, 0777, true);
+            }
+
+            $img->save($originalPath . $name);
         }
-
-        $img->save($originalPath . $name);
-
 
         $users = Cliente::create([
             'name' => $request->input('name'),

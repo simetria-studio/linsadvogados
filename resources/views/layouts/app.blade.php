@@ -209,6 +209,7 @@
     <script src="{{ url('dark-html/js/custom.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{{ url('assets/jquery.maskMoney.min.js') }}"></script>
     <script>
         $('#buscaring').on('click', function() {
             $value = $('#ceping').val();
@@ -220,7 +221,7 @@
                 },
                 success: function(data) {
                     console.log(data);
-                    $('#endereco').val(data.street);
+                    $('#rua').val(data.street);
                     $('#bairro').val(data.district);
                     $('#cidade').val(data.city);
                     $('#estado').val(data.uf);
@@ -233,6 +234,10 @@
         $('[name="cep"]').mask('99999-999');
         $('[name="telefone"]').mask('(99) 9999-9999');
         $('[name="whatsapp"]').mask('(99) 99999-9999');
+
+
+        $("#valor").maskMoney({symbol:'R$ ', thousands:'.', decimal:',', symbolStay: true});
+        $("#parcela").maskMoney({symbol:'R$ ', thousands:'.', decimal:',', symbolStay: true});
     </script>
 </body>
 
