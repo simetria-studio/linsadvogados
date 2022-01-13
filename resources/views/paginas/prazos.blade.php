@@ -38,6 +38,7 @@
                                         <th>Serviço</th>
                                         <th>Situação</th>
                                         <th>Prazo</th>
+                                        <th>Documentos</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
@@ -49,7 +50,7 @@
                                             <td>{{ $prazo->servico }}</td>
                                             <td>{{ $prazo->situacao }}</td>
                                             <td>{{ date('d/m/Y', strtotime($prazo->prazo)) }}</td>
-
+                                            <td>{{ $prazo->documento }}</td>
                                             <td>
                                                 <div class="flex align-items-center list-user-action">
                                                     {{-- <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
@@ -133,11 +134,11 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Documento:</label>
-                                            <input type="file" class="form-control" name="documento">
+                                            <label>Documentos da exigência:</label>
+                                            <input type="text" class="form-control" name="documento"
+                                                placeholder="Documentos" />
                                         </div>
                                     </div>
-
 
                                 </div>
                                 <button type="submit" name="next" class="btn btn-primary next action-button float-right"

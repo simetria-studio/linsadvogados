@@ -38,6 +38,7 @@
                                         <th>Serviço</th>
                                         <th>Motivo</th>
                                         <th>Prazo</th>
+                                        <th>Vara</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
@@ -49,7 +50,7 @@
                                             <td>{{ $processo->servico }}</td>
                                             <td>{{ $processo->motivo }}</td>
                                             <td>{{ date('d/m/Y', strtotime($processo->prazo)) }}</td>
-
+                                            <td>{{ $processo->vara }}</td>
                                             <td>
                                                 <div class="flex align-items-center list-user-action">
                                                     {{-- <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
@@ -131,7 +132,13 @@
                                             <input type="date" class="form-control" name="data" />
                                         </div>
                                     </div>
-
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Vara:</label>
+                                            <input type="text" class="form-control" name="vara"
+                                                placeholder="Vara" />
+                                        </div>
+                                    </div>
 
 
                                 </div>

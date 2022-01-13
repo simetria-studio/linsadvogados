@@ -19,6 +19,7 @@ class CreateProcessosTable extends Migration
             $table->string('cpf')->nullable();
             $table->string('motivo')->nullable();
             $table->string('servico')->nullable();
+            $table->string('vara')->nullable();
             $table->date('data')->nullable();
             $table->timestamps();
         });

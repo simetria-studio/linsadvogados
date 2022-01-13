@@ -23,7 +23,8 @@
                                             <div class="row">
                                                 <div class="form-group mb-0 col-md-6">
                                                     <input type="search" class="form-control" id="exampleInputSearch"
-                                                        placeholder="Digite o cpf para buscar" name="search" aria-controls="user-list-table">
+                                                        placeholder="Digite o cpf para buscar" name="search"
+                                                        aria-controls="user-list-table">
                                                 </div>
                                                 <div class="col-md-4">
                                                     <button class="btn btn-success">Buscar</button>
@@ -60,9 +61,11 @@
                                             <td>
                                                 <div class="flex align-items-center list-user-action">
                                                     <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                        title="" data-original-title="Editar" href="{{ route('clientes.edit', $cliente->id) }}" ><i
+                                                        title="" data-original-title="Editar"
+                                                        href="{{ route('clientes.edit', $cliente->id) }}"><i
                                                             class="ri-pencil-line"></i></a>
-                                                    <a class="iq-bg-primary" onclick="deleteItem(this)" data-toggle="tooltip" data-original-title="Deletar"
+                                                    <a class="iq-bg-primary" onclick="deleteItem(this)"
+                                                        data-toggle="tooltip" data-original-title="Deletar"
                                                         data-id="{{ $cliente->id }}"><i
                                                             class="ri-delete-bin-line"></i></a>
                                                     <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
@@ -165,6 +168,12 @@
                                             <label>Numero do Processo:</label>
                                             <input type="text" class="form-control" name="numero_processo"
                                                 placeholder="Número do processo" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Upload documentos:</label>
+                                            <input type="file" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -302,7 +311,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Obs: </label>
-                                            <textarea class="form-control" name="obs" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            <textarea class="form-control" name="obs" id="exampleFormControlTextarea1"
+                                                rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>

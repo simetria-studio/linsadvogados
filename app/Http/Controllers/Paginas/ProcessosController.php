@@ -43,6 +43,7 @@ class ProcessosController extends Controller
             'servico'      => $request->input('servico'),
             'motivo'      => $request->input('motivo'),
             'data'=> $request->input('data'),
+            'vara'=> $request->input('vara'),
         ]);
         return redirect()->back()->with('success', 'Pagamento criado com sucesso!');
     }

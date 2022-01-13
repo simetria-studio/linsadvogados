@@ -14,7 +14,8 @@ class Processo extends Model
         'servico',
         'motivo',
         'data',
-       
+        'vara'
+
 
     ];
 }

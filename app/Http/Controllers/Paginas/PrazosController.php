@@ -39,20 +39,6 @@ class PrazosController extends Controller
      */
     public function store(Request $request)
     {
-        $name = "";
-        if ($request->hasFile('documento')) {
-
-            $img = ImageManagerStatic::make($request->file('documento')->getRealPath());
-
-            $name = Str::random() . '.jpg';
-
-            $originalPath = storage_path('app/public/docomentos/');
-            if (!file_exists($originalPath)) {
-                mkdir($originalPath, 0777, true);
-            }
-
-            $img->save($originalPath . $name);
-        }
 
 
         $users = Prazo::create([
@@ -61,8 +47,7 @@ class PrazosController extends Controller
             'servico' => $request->input('servico'),
             'situacao' => $request->input('situacao'),
             'prazo' => $request->input('prazo'),
-            'documento' => $name,
-
+            'documento' => $request->input('documento'),
         ]);
         return redirect()->back()->with('success', 'Pagamento criado com sucesso!');
 
