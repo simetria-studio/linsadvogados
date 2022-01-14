@@ -65,12 +65,7 @@
                                 <span>Home</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ route('financeiro') }}" class="iq-waves-effect">
-                                <i class="ri-money-dollar-circle-line"></i>
-                                <span>Financeiro</span>
-                            </a>
-                        </li>
+
                         <li>
                             <a href="{{ route('clientes') }}" class="iq-waves-effect">
                                 <i class="ri-group-line"></i>
@@ -105,6 +100,12 @@
                                     <x-iconpark-hammerandanvil-o />
                                 </i>
                                 <span>Processos Arquivados</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('financeiro') }}" class="iq-waves-effect">
+                                <i class="ri-money-dollar-circle-line"></i>
+                                <span>Financeiro</span>
                             </a>
                         </li>
                         {{-- <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Apps</span></li> --}}
