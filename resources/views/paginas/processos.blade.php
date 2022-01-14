@@ -33,7 +33,7 @@
                                 aria-describedby="user-list-page-info">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
+                                        <th>Nome</th>
                                         <th>CPF</th>
                                         <th>Serviço</th>
                                         <th>Motivo</th>

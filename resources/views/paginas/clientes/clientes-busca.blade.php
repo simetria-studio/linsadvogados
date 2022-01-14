@@ -40,7 +40,7 @@
                                 <thead>
                                     <tr>
                                         <th>Foto</th>
-                                        <th>Name</th>
+                                        <th>Nome</th>
                                         <th>CPF</th>
                                         <th>Requerimento</th>
                                         <th>Processo</th>
