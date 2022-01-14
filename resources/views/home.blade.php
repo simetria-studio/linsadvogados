@@ -54,7 +54,7 @@
                 </div>
             </a>
             <a href="{{ route('processos') }}" class="col-lg-3">
-                <div class="card text-white bg-secondary iq-mb-3">
+                <div class="card text-white bg-success iq-mb-3">
                     <div class="card-body">
                         <h4 class="card-title text-white">Processos arquivados</h4>
                         <blockquote class="blockquote mb-0">
