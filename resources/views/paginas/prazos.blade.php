@@ -134,9 +134,9 @@
                                     </div> --}}
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Documentos da exigência:</label>
-                                            <input type="text" class="form-control" name="documento"
-                                                placeholder="Documentos" />
+                                            <label>Documentos da exigência: </label>
+                                            <textarea class="form-control" name="documento" id="exampleFormControlTextarea1"
+                                                rows="3"></textarea>
                                         </div>
                                     </div>
 
