@@ -26,6 +26,8 @@ class CreateClientesTable extends Migration
             $table->string('telefone')->nullable();
             $table->string('email')->nullable();
             $table->string('whatsapp')->nullable();
+            $table->string('referencia')->nullable();
+            $table->string('referencia_telefone')->nullable();
             $table->text('obs')->nullable();
             $table->timestamps();
         });

@@ -20,7 +20,9 @@ class Cliente extends Model
         'telefone',
         'email',
         'whatsapp',
-        'obs'
+        'obs',
+        'referencia',
+        'referencia_telefone'
     ];
 
     public function adress()

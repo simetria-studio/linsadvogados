@@ -308,6 +308,20 @@
                                                 placeholder="Whatsapp do cliente" />
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Referência: </label>
+                                            <input type="text" class="form-control" name="referencia"
+                                                placeholder="Nome da referência" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Telefone: </label>
+                                            <input type="text" class="form-control" name="referencia_telefone"
+                                                placeholder="Telefone da referência" />
+                                        </div>
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Obs: </label>
