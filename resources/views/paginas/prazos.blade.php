@@ -126,12 +126,12 @@
                                                 placeholder="Situação" />
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Prazo:</label>
                                             <input type="date" class="form-control" name="prazo" />
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Documentos da exigência:</label>
