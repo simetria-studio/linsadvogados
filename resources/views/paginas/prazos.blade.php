@@ -37,7 +37,7 @@
                                         <th>CPF</th>
                                         <th>Serviço</th>
                                         <th>Situação</th>
-                                        <th>Prazo</th>
+                                        {{-- <th>Prazo</th> --}}
                                         <th>Documentos</th>
                                         <th>Ação</th>
                                     </tr>
@@ -49,7 +49,7 @@
                                             <td>{{ $prazo->cpf }}</td>
                                             <td>{{ $prazo->servico }}</td>
                                             <td>{{ $prazo->situacao }}</td>
-                                            <td>{{ date('d/m/Y', strtotime($prazo->prazo)) }}</td>
+                                            {{-- <td>{{ date('d/m/Y', strtotime($prazo->prazo)) }}</td> --}}
                                             <td>{{ $prazo->documento }}</td>
                                             <td>
                                                 <div class="flex align-items-center list-user-action">
