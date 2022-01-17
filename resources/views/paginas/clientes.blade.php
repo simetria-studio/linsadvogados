@@ -303,7 +303,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Whatspp: </label>
+                                            <label>WhatsApp: </label>
                                             <input type="text" class="form-control" name="whatsapp"
                                                 placeholder="Whatsapp do cliente" />
                                         </div>
