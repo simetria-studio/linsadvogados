@@ -67,6 +67,27 @@
                                             placeholder="Número do processo" />
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>WhatsApp:</label>
+                                        <input type="text" class="form-control" value="{{ $cliente->whatsapp }}" name="whatsapp"
+                                            placeholder="WhatsApp do cliente" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Telefone:</label>
+                                        <input type="text" class="form-control" value="{{ $cliente->telefone }}" name="telefone"
+                                            placeholder="Telefone do cliente" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Email:</label>
+                                        <input type="email" class="form-control" value="{{ $cliente->email }}" name="email"
+                                            placeholder="Email do cliente" />
+                                    </div>
+                                </div>
                                 <button type="submit" class="btn btn-primary">Editar Cliente</button>
                         </form>
                     </div>

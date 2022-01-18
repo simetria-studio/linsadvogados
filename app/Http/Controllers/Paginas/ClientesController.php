@@ -64,7 +64,7 @@ class ClientesController extends Controller
             'cpf' => $request->input('cpf'),
             'requerimento' => $request->input('requerimento'),
             'numero_processo' => $request->input('numero_processo'),
-            'requerimento' => $request->input('requerimento'),
+            // 'requerimento' => $request->input('requerimento'),
             'numero_processo' => $request->input('numero_processo'),
             'telefone' => $request->input('telefone'),
             'email' => $request->input('email'),
@@ -152,7 +152,7 @@ class ClientesController extends Controller
         //     'complemento' => $request->complemento,
 
         // ]);
-        return redirect()->back()->with('success', 'Produto criado com sucesso!');
+        return redirect()->route('clientes')->with('success', 'Cliente editado com sucesso!');
     }
 
     /**
