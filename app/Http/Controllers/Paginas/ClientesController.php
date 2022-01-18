@@ -139,6 +139,9 @@ class ClientesController extends Controller
             'telefone' => $request->input('telefone'),
             'email' => $request->input('email'),
             'whatsapp' => $request->input('whatsapp'),
+            'referencia' => $request->input('referencia'),
+            'referencia_telefone' => $request->input('referencia_telefone'),
+            'obs' => $request->input('obs'),
 
         ]);
         // $adress = Adress::create([

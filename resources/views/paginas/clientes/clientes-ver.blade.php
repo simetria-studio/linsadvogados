@@ -104,6 +104,17 @@
                                     </div>
 
                                     <div class="form-group col-md-12">
+                                        <label for="fname">Nome Referência:</label>
+                                        <input type="text" class="form-control" value="{{ $cliente->referencia }}" id="fname"
+                                            value="Nik" disabled>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="fname">Telefone Referência:</label>
+                                        <input type="text" class="form-control" value="{{ $cliente->referencia_telefone }}" id="fname"
+                                            value="Nik" disabled>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
                                         <label for="fname">Obs:</label>
                                         <input type="text" class="form-control" value="{{ $cliente->obs }}" id="fname"
                                             value="Nik" disabled>

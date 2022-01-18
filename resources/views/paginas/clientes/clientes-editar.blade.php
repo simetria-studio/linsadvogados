@@ -88,6 +88,27 @@
                                             placeholder="Email do cliente" />
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Nome Referência:</label>
+                                        <input type="text" class="form-control" value="{{ $cliente->referencia }}" name="referencia"
+                                            placeholder="Nome referência" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Telefone Referência:</label>
+                                        <input type="text" class="form-control" value="{{ $cliente->referencia_telefone }}" name="referencia_telefone"
+                                            placeholder="Telefone referência" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Obs: </label>
+                                        <textarea class="form-control"  name="obs" id="exampleFormControlTextarea1"
+                                            rows="3">{{ $cliente->obs }}</textarea>
+                                    </div>
+                                </div>
                                 <button type="submit" class="btn btn-primary">Editar Cliente</button>
                         </form>
                     </div>
