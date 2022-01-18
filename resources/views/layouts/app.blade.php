@@ -108,64 +108,75 @@
                                 <span>Financeiro</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('config') }}" class="iq-waves-effect">
+                                <i class="fas fa-cog"></i>
+                                <span>Configurações</span>
+                            </a>
+                        </li>
                         {{-- <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Apps</span></li> --}}
                     </ul>
                 </nav>
                 <div class="p-3"></div>
             </div>
         </div>
-         <!-- TOP Nav Bar -->
-         <div class="iq-top-navbar">
+        <!-- TOP Nav Bar -->
+        <div class="iq-top-navbar">
             <div class="iq-navbar-custom">
-               <div class="iq-sidebar-logo">
-                  <div class="top-logo">
-                     <a href="index.html" class="logo">
-                     <img src="images/logo.gif" class="img-fluid" alt="">
-                     <span>vito</span>
-                     </a>
-                  </div>
-               </div>
-               <nav class="navbar navbar-expand-lg navbar-light p-0">
-
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
-                  <i class="ri-menu-3-line"></i>
-                  </button>
-                  <div class="iq-menu-bt align-self-center">
-                     <div class="wrapper-menu">
-                        <div class="main-circle"><i class="ri-arrow-left-s-line"></i></div>
-                        <div class="hover-circle"><i class="ri-arrow-right-s-line"></i></div>
-                     </div>
-                  </div>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
-                  <ul class="navbar-list">
-                     <li>
-                        <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center bg-primary rounded">
-
-                           <div class="caption">
-                              <h6 class="mb-0 line-height text-white">{{ auth()->user()->name }}</h6>
-                              <span class="font-size-12 text-white">Disponivel</span>
-                           </div>
+                <div class="iq-sidebar-logo">
+                    <div class="top-logo">
+                        <a href="index.html" class="logo">
+                            <img src="images/logo.gif" class="img-fluid" alt="">
+                            <span>vito</span>
                         </a>
-                        <div class="iq-sub-dropdown iq-user-dropdown">
-                           <div class="iq-card shadow-none m-0">
-                              <div class="iq-card-body p-0 ">
-                                 <div class="bg-primary p-3">
-                                    <h5 class="mb-0 text-white line-height">Olá {{ auth()->user()->name }}</h5>
-                                    <span class="text-white font-size-12">Disponivel</span>
-                                 </div>
+                    </div>
+                </div>
+                <nav class="navbar navbar-expand-lg navbar-light p-0">
 
-                                 <div class="d-inline-block w-100 text-center p-3">
-                                    <a class="bg-primary iq-sign-btn" href="#" role="button">Log out<i class="ri-login-box-line ml-2"></i></a>
-                                 </div>
-                              </div>
-                           </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-label="Toggle navigation">
+                        <i class="ri-menu-3-line"></i>
+                    </button>
+                    <div class="iq-menu-bt align-self-center">
+                        <div class="wrapper-menu">
+                            <div class="main-circle"><i class="ri-arrow-left-s-line"></i></div>
+                            <div class="hover-circle"><i class="ri-arrow-right-s-line"></i></div>
                         </div>
-                     </li>
-                  </ul>
-               </nav>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+                    <ul class="navbar-list">
+                        <li>
+                            <a href="#"
+                                class="search-toggle iq-waves-effect d-flex align-items-center bg-primary rounded">
+
+                                <div class="caption">
+                                    <h6 class="mb-0 line-height text-white">{{ auth()->user()->name }}</h6>
+                                    <span class="font-size-12 text-white">Disponivel</span>
+                                </div>
+                            </a>
+                            <div class="iq-sub-dropdown iq-user-dropdown">
+                                <div class="iq-card shadow-none m-0">
+                                    <div class="iq-card-body p-0 ">
+                                        <div class="bg-primary p-3">
+                                            <h5 class="mb-0 text-white line-height">Olá {{ auth()->user()->name }}
+                                            </h5>
+                                            <span class="text-white font-size-12">Disponivel</span>
+                                        </div>
+
+                                        <div class="d-inline-block w-100 text-center p-3">
+                                            <a class="bg-primary iq-sign-btn" href="{{ route('user.logout') }}"
+                                                role="button">Sair<i class="ri-login-box-line ml-2"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-         </div>
-         <!-- TOP Nav Bar END -->
+        </div>
+        <!-- TOP Nav Bar END -->
         <div id="content-page" class="content-page">
             @yield('content')
         </div>
@@ -253,9 +264,33 @@
         $('[name="whatsapp"]').mask('(99) 99999-9999');
 
 
-        $("#valor").maskMoney({symbol:'R$ ', thousands:'.', decimal:',', symbolStay: true});
-        $("#parcela").maskMoney({symbol:'R$ ', thousands:'.', decimal:',', symbolStay: true});
+        $("#valor").maskMoney({
+            symbol: 'R$ ',
+            thousands: '.',
+            decimal: ',',
+            symbolStay: true
+        });
+        $("#parcela").maskMoney({
+            symbol: 'R$ ',
+            thousands: '.',
+            decimal: ',',
+            symbolStay: true
+        });
     </script>
+    @if (Session::has('success'))
+        <script type="text/javascript">
+            Swal.fire({
+                title: 'Sucesso!',
+                icon: 'success',
+                text: "{{ Session::get('success') }}",
+                timer: 5000,
+                type: 'success'
+            }).then((result) => {
+                // Reload the Page
+                location.reload();
+            });
+        </script>
+    @endif
 </body>
 
 </html>

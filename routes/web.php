@@ -10,6 +10,7 @@ use App\Http\Controllers\Paginas\ProcessosController;
 use App\Http\Controllers\Painel\PerfilEditController;
 use App\Http\Controllers\Paginas\FinanceiroController;
 use App\Http\Controllers\Painel\PrivacidadeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,10 @@ Route::middleware(['auth'])->group(function () {
     Route::any('precessosDelete/{id}', [ProcessosController::class, 'destroy'])->name('processos.delete');
 
 
+    Route::any('user/logout', [UserController::class, 'logout'])->name('user.logout');
 
     Route::get('buscacep', [CepController::class, 'buscaCep'])->name('address.cep');
+
+    Route::get('configs', [UserController::class, 'configs'])->name('config');
+    Route::post('user/alt/{id}', [UserController::class, 'userAlt'])->name('user.alt');
 });
