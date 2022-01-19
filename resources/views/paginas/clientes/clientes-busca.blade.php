@@ -61,9 +61,11 @@
                                             <td>
                                                 <div class="flex align-items-center list-user-action">
                                                     <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
-                                                        title="" data-original-title="Editar" href="#"><i
+                                                        title="" data-original-title="Editar"
+                                                        href="{{ route('clientes.edit', $cliente->id) }}"><i
                                                             class="ri-pencil-line"></i></a>
-                                                    <a class="iq-bg-primary" onclick="deleteItem(this)" data-toggle="tooltip" data-original-title="Deletar"
+                                                    <a class="iq-bg-primary" onclick="deleteItem(this)"
+                                                        data-toggle="tooltip" data-original-title="Deletar"
                                                         data-id="{{ $cliente->id }}"><i
                                                             class="ri-delete-bin-line"></i></a>
                                                     <a class="iq-bg-primary" data-toggle="tooltip" data-placement="top"
@@ -172,6 +174,12 @@
                                                 placeholder="Número do processo" />
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Upload documentos:</label>
+                                            <input type="file" class="form-control">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <button type="button" name="next" class="btn btn-primary next action-button float-right"
@@ -267,7 +275,7 @@
 
                             </div>
                             <button type="button" name="next" class="btn btn-primary next action-button float-right"
-                                value="Submit">Cadastrar</button>
+                                value="Submit">Próximo</button>
                             <button type="button" name="previous"
                                 class="btn btn-dark previous action-button-previous float-right mr-3"
                                 value="Previous">Anterior</button>
@@ -276,7 +284,7 @@
                             <div class="form-card text-left">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h3 class="mb-4">Contatos:</h3>
+                                        <h3 class="mb-4">Referência:</h3>
                                     </div>
                                     <div class="col-5">
                                         <h2 class="steps">Step 4 - 5</h2>
@@ -299,9 +307,30 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Whatspp: </label>
+                                            <label>WhatsApp: </label>
                                             <input type="text" class="form-control" name="whatsapp"
                                                 placeholder="Whatsapp do cliente" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Referência: </label>
+                                            <input type="text" class="form-control" name="referencia"
+                                                placeholder="Nome da referência" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Telefone: </label>
+                                            <input type="text" class="form-control" name="referencia_telefone"
+                                                placeholder="Telefone da referência" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Obs: </label>
+                                            <textarea class="form-control" name="obs" id="exampleFormControlTextarea1"
+                                                rows="3"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -312,6 +341,7 @@
                                 class="btn btn-dark previous action-button-previous float-right mr-3"
                                 value="Previous">Anterior</button>
                         </fieldset>
+
                         <fieldset>
                             <div class="form-card">
                                 <div class="row">
