@@ -51,7 +51,7 @@
                                     @forelse ($clientes as $cliente )
                                         <tr>
                                             <td class="text-center"><img class="rounded-circle img-fluid avatar-40"
-                                                    src="{{ asset('storage/clientes/' . $cliente->image) }}"
+                                                    src="@if($cliente->image) {{ asset('storage/clientes/' . $cliente->image)}} @else  @endif"
                                                     alt="profile">
                                             </td>
                                             <td>{{ $cliente->name }}</td>
