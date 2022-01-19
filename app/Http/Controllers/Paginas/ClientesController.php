@@ -19,7 +19,7 @@ class ClientesController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::with('adress')->paginate(15);
+        $clientes = Cliente::with('adress')->orderBy('name')->paginate(15);
         return view('paginas.clientes', get_defined_vars());
     }
 
