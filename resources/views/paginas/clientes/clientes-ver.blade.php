@@ -9,6 +9,9 @@
                             <div class="iq-header-title">
                                 <h4 class="card-title">Informação do cliente</h4>
                             </div>
+                            <div>
+                                <a href="{{ route('clientes') }}"><button class="btn btn-success">Voltar</button></a>
+                            </div>
                         </div>
                         <div class="iq-card-body">
                             <form>
@@ -68,50 +71,51 @@
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="fname">Email:</label>
-                                        <input type="text" class="form-control" value="{{ $cliente->email }}" id="fname"
-                                            value="Nik" disabled>
+                                        <input type="text" class="form-control" value="{{ $cliente->email }}"
+                                            id="fname" value="Nik" disabled>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="fname">Rua e numero:</label>
                                         <input type="text" class="form-control"
-                                            value="{{ $cliente->adress->rua ?? ''}}, {{ $cliente->adress->numero ?? '' }}"
+                                            value="{{ $cliente->adress->rua ?? '' }}, {{ $cliente->adress->numero ?? '' }}"
                                             id="fname" value="Nik" disabled>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="fname">Bairro:</label>
-                                        <input type="text" class="form-control" value="{{ $cliente->adress->bairro ?? '' }}"
-                                            id="fname" value="Nik" disabled>
+                                        <input type="text" class="form-control"
+                                            value="{{ $cliente->adress->bairro ?? '' }}" id="fname" value="Nik" disabled>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="fname">Cidade:</label>
-                                        <input type="text" class="form-control" value="{{ $cliente->adress->cidade ?? '' }}"
-                                            id="fname" value="Nik" disabled>
+                                        <input type="text" class="form-control"
+                                            value="{{ $cliente->adress->cidade ?? '' }}" id="fname" value="Nik" disabled>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="fname">Estado:</label>
-                                        <input type="text" class="form-control" value="{{ $cliente->adress->estado ?? '' }}"
-                                            id="fname" value="Nik" disabled>
+                                        <input type="text" class="form-control"
+                                            value="{{ $cliente->adress->estado ?? '' }}" id="fname" value="Nik" disabled>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="fname">Cep:</label>
-                                        <input type="text" class="form-control" value="{{ $cliente->adress->cep ?? '' }}"
-                                            id="fname" value="Nik" disabled>
+                                        <input type="text" class="form-control"
+                                            value="{{ $cliente->adress->cep ?? '' }}" id="fname" value="Nik" disabled>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="fname">Complemento:</label>
                                         <input type="text" class="form-control"
-                                            value="{{ $cliente->adress->complemento ?? '' }}" id="fname" value="Nik" disabled>
+                                            value="{{ $cliente->adress->complemento ?? '' }}" id="fname" value="Nik"
+                                            disabled>
                                     </div>
 
                                     <div class="form-group col-md-12">
                                         <label for="fname">Nome Referência:</label>
-                                        <input type="text" class="form-control" value="{{ $cliente->referencia }}" id="fname"
-                                            value="Nik" disabled>
+                                        <input type="text" class="form-control" value="{{ $cliente->referencia }}"
+                                            id="fname" value="Nik" disabled>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="fname">Telefone Referência:</label>
-                                        <input type="text" class="form-control" value="{{ $cliente->referencia_telefone }}" id="fname"
-                                            value="Nik" disabled>
+                                        <input type="text" class="form-control"
+                                            value="{{ $cliente->referencia_telefone }}" id="fname" value="Nik" disabled>
                                     </div>
 
                                     <div class="form-group col-md-12">
