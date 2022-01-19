@@ -51,8 +51,8 @@
                                     @foreach ($clientes as $cliente)
                                         <tr>
                                             <td class="text-center"><img class="rounded-circle img-fluid avatar-40"
-                                                    src="@if($cliente->image) {{ asset('storage/clientes/' . $cliente->image)}} @else '' @endif"
-                                                    alt="profile">
+                                                    src="@if($cliente->image) {{ asset('storage/clientes/' . $cliente->image)}} @else  @endif"
+                                                    alt="">
                                             </td>
                                             <td>{{ $cliente->name }}</td>
                                             <td>{{ $cliente->cpf }}</td>
