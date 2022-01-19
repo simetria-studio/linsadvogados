@@ -9,8 +9,7 @@
                             <h4 class="card-title">Lista de Clientes</h4>
                         </div>
                         <div>
-                            <button class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">Adicionar
-                                Novo</button>
+                           <a href="{{ route('clientes') }}"><button class="btn btn-success">Voltar</button></a>
                         </div>
                     </div>
                     <div class="iq-card-body">
@@ -105,7 +104,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                {{-- <div class="modal-body">
                     <form id="form-wizard1" class="text-center mt-4" method="post" action="{{ route('clientes.store') }}"
                         enctype="multipart/form-data">
                         @csrf
@@ -366,7 +365,7 @@
                             </div>
                         </fieldset>
                     </form>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
