@@ -9,6 +9,9 @@
                     <div class="iq-header-title">
                         <h4 class="card-title">Editar cliente {{ $cliente->name }}</h4>
                     </div>
+                    <div>
+                        <a href="{{ route('clientes') }}"><button class="btn btn-success">Voltar</button></a>
+                     </div>
                 </div>
                 <div class="iq-card-body">
                     <div class="new-user-info">
