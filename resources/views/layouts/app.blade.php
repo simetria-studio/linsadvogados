@@ -28,6 +28,7 @@
     <link href='{{ asset('dark-html/fullcalendar/daygrid/main.css') }}' rel='stylesheet' />
     <link href='{{ asset('dark-html/fullcalendar/timegrid/main.css') }}' rel='stylesheet' />
     <link href='{{ asset('dark-html/fullcalendar/list/main.css') }}' rel='stylesheet' />
+    <link rel="stylesheet" href="{{ asset('assets/main.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://kit.fontawesome.com/e67788a73f.js" crossorigin="anonymous"></script>
 </head>

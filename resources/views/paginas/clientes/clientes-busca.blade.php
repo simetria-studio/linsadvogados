@@ -330,7 +330,7 @@
                                         <div class="form-group">
                                             <label>Obs: </label>
                                             <textarea class="form-control" name="obs" id="exampleFormControlTextarea1"
-                                                rows="3"></textarea>
+                                                rows="4"></textarea>
                                         </div>
                                     </div>
                                 </div>
